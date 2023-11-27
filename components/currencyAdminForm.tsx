@@ -42,6 +42,7 @@ export default function CurrencyAdminForm() {
                   setData={(value) => {
                     let tmp = [...data];
                     tmp = tmp.filter((item) => item.id !== value.id);
+                    setData(tmp);
                   }}
                 />
               );
