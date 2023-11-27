@@ -183,7 +183,7 @@ export default function Exchange({
       >
         <div className='w-full drop-shadow-3xl-light bg-[#1a1c1e] rounded-[10px] p-[20px] flex flex-col gap-[10px] lg:flex-row rounded-t-none'>
           {showCityList ? (
-            <div className='max-h-[300px] lg:max-h-full'>
+            <div className='max-h-[300px] lg:max-h-full overflow-y-auto'>
               <CityList
                 currentCity={formData.city ? formData.city : ""}
                 setCity={(city) => setFormData({ ...formData, city: city })}
