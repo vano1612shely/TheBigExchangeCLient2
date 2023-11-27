@@ -116,32 +116,6 @@ export default function InfoAdminForm() {
                 placeholder='Введите адрес'
               />
             </div>
-            <div className='flex flex-col'>
-              <label htmlFor='exchange'>Курс гривны(UAH/USD):</label>
-              <input
-                id='exchange'
-                type='text'
-                className='text-black rounded p-[5px]'
-                value={data?.exchange}
-                onChange={(e) =>
-                  setData({ ...data, exchange: parseFloat(e.target.value) })
-                }
-                placeholder='Введите курс гривны'
-              />
-            </div>
-            <div className='flex flex-col'>
-              <label htmlFor='percent'>Процент:</label>
-              <input
-                id='percent'
-                type='text'
-                className='text-black rounded p-[5px]'
-                value={data?.percent}
-                onChange={(e) =>
-                  setData({ ...data, percent: parseFloat(e.target.value) })
-                }
-                placeholder='Введите процент'
-              />
-            </div>
           </div>
           <button
             className='bg-[#ffb932] rounded-[20px] p-[15px]'

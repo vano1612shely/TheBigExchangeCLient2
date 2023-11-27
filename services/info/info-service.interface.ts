@@ -14,7 +14,6 @@ export interface IDataResponseForAdmin {
   instagram: string;
   exchange: number;
   address: string;
-  percent: number;
   telegramBotApi: string;
   telegramChatId: string;
 }

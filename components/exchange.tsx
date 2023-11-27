@@ -106,6 +106,7 @@ export default function Exchange({
         setGiveCurrency(fiat);
         setFormData({
           ...formData,
+          type: type,
           giveCurrency: fiat[0],
           getCurrency: fiat[0],
         });
@@ -120,6 +121,7 @@ export default function Exchange({
         setGetCurrency(get);
         setFormData({
           ...formData,
+          type: type,
           giveCurrency: give[0],
           getCurrency: get[0],
         });
@@ -137,22 +139,13 @@ export default function Exchange({
           getCurrency: formData.getCurrency,
         },
       });
-      if (res.data.symbol) {
-        const newExchange = res.data.price;
-        // Оновлення formData з урахуванням нового значення exchange
-        setFormData((prevFormData) => ({
-          ...prevFormData,
-          exchange: newExchange,
-          getSum: prevFormData.giveSum * newExchange,
-        }));
-      } else {
-        const newExchange = 0;
-        setFormData((prevFormData) => ({
-          ...prevFormData,
-          exchange: newExchange,
-          getSum: prevFormData.giveSum * newExchange,
-        }));
-      }
+      const newExchange = res.data.price;
+      // Оновлення formData з урахуванням нового значення exchange
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        exchange: newExchange,
+        getSum: prevFormData.giveSum * newExchange,
+      }));
     };
     if (updateExchange) {
       getExchange();
@@ -168,6 +161,7 @@ export default function Exchange({
         action=''
         onSubmit={async (e) => {
           e.preventDefault();
+          console.log(formData);
           const res = await telegramService.sendData(formData);
           if (res === true) {
             setModalData({
@@ -301,7 +295,7 @@ export default function Exchange({
             <div className='flex flex-col gap-[5px] mb-[20px] items-center lg:flex-row lg:items-star'>
               <Select
                 options={giveCurrency}
-                selected={giveCurrency[0]}
+                selected={formData.giveCurrency}
                 onChange={(value) => {
                   setFormData({
                     ...formData,
@@ -326,6 +320,7 @@ export default function Exchange({
                     giveCurrency: formData.getCurrency,
                     getCurrency: formData.giveCurrency,
                   });
+                  setUpdateExchange(true);
                 }}
               >
                 <Image src={exIcon} width={50} height={50} alt={"switch"} />
@@ -333,7 +328,7 @@ export default function Exchange({
               <Select
                 options={getCurrency}
                 placeholder='123'
-                selected={getCurrency[0]}
+                selected={formData.getCurrency}
                 onChange={(value) => {
                   setFormData({
                     ...formData,

@@ -37,6 +37,13 @@ class CurrencyService {
     });
     return res.data;
   }
+  async updatePercent(id: number, percent: number) {
+    const res = await api.patch("/currency", {
+      id,
+      percent,
+    });
+    return res.data;
+  }
 }
 
 export default new CurrencyService();

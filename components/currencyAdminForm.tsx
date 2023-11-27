@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { URL } from "@/services/api/interceptors";
 import Select, { SingleValue } from "react-select";
+import CurrencyAdminFormItem from "./currencyAdminFormItem";
 export default function CurrencyAdminForm() {
   const options = [
     { value: "crypto", label: "Crypto" },
@@ -17,6 +18,7 @@ export default function CurrencyAdminForm() {
     title: "",
     value: "",
     type: "crypto",
+    percent: 0,
   });
   const [selectedItem, setSelectedItem] = useState(options[0]);
   const [file, setFile] = useState<File | null>(null);
@@ -34,38 +36,14 @@ export default function CurrencyAdminForm() {
         {data
           ? data.map((currency) => {
               return (
-                <li
-                  className='w-[300px] flex border rounded p-[10px] items-center justify-between'
+                <CurrencyAdminFormItem
                   key={currency.id}
-                >
-                  <div className='flex flex-row items-center'>
-                    {currency.icon_link ? (
-                      <Image
-                        className='mr-[10px]'
-                        src={URL + "/" + currency.icon_link}
-                        width={30}
-                        height={30}
-                        alt={""}
-                      />
-                    ) : (
-                      ""
-                    )}
-                    {currency.title}
-                  </div>
-                  <button
-                    className='bg-[#ffb932] rounded p-[5px]'
-                    onClick={async () => {
-                      if (currency && typeof currency.id === "number") {
-                        let res = await currencyService.delete(currency.id);
-                        let tmp = [...data];
-                        tmp = tmp.filter((item) => item.id !== res.id);
-                        setData(tmp);
-                      }
-                    }}
-                  >
-                    Удалить
-                  </button>
-                </li>
+                  currency={currency}
+                  setData={(value) => {
+                    let tmp = [...data];
+                    tmp = tmp.filter((item) => item.id !== value.id);
+                  }}
+                />
               );
             })
           : ""}
@@ -84,6 +62,15 @@ export default function CurrencyAdminForm() {
           className='text-black rounded p-[5px]'
           value={formData.value}
           onChange={(e) => setFormData({ ...formData, value: e.target.value })}
+        />
+        <input
+          type='number'
+          placeholder='Введите процент'
+          className='text-black rounded p-[5px]'
+          value={formData.percent ? formData.percent : ""}
+          onChange={(e) =>
+            setFormData({ ...formData, percent: Number(e.target.value) })
+          }
         />
         <Select
           className='text-black'
@@ -116,6 +103,7 @@ export default function CurrencyAdminForm() {
                 title: "",
                 value: "",
                 type: "crypto",
+                percent: 0,
               });
               setFile(null);
             }
