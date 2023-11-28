@@ -103,11 +103,7 @@ export default function Footer({
         <ul className='flex flex-col gap-[20px] items-center md:items-start'>
           <li className='flex gap-[10px] items-center'>
             <Image src={time} alt='time' />
-            пн-пт 09:00 - 21:00
-          </li>
-          <li className='flex gap-[10px] items-center'>
-            <Image src={time} alt='time' />
-            сб-вс 10:00 - 21:00
+            24/7
           </li>
         </ul>
       </div>

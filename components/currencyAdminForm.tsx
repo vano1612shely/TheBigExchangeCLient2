@@ -100,12 +100,7 @@ export default function CurrencyAdminForm() {
             const res = await currencyService.create(formData, file);
             if (res) {
               setData([...data, res]);
-              setFormData({
-                title: "",
-                value: "",
-                type: "crypto",
-                percent: 0,
-              });
+              setFormData({ ...formData, title: "", value: "", percent: 0 });
               setFile(null);
             }
           }}

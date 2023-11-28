@@ -16,11 +16,12 @@ export default function OurServices() {
           </div>
           <div className='flex flex-col'>
             <h3 className='font-bold text-[24px] leading-[28px] text-[#ffb932] mb-[13px]'>
-              Обмен валюты
+              Надежность
             </h3>
             <p className='font-light text-[16px] leading-[19px] text-white'>
-              Значимость этих проблем настолько очевидна, что сложившаяся
-              структура играет роль в формировании модели
+              TheBigExchange - это надежная и лицензированная финансовая
+              компания, которая стремится обеспечивать безопасность и защиту для
+              всех наших клиентов.
             </p>
           </div>
         </li>
@@ -30,10 +31,11 @@ export default function OurServices() {
           </div>
           <div className='flex flex-col'>
             <h3 className='font-bold text-[24px] leading-[28px] text-[#ffb932] mb-[13px]'>
-              Обмен криптовалюты
+              Глобальное Присутствие
             </h3>
             <p className='font-light text-[16px] leading-[19px] text-white'>
-              Начало повседневной работы по формированию позиции в значительной
+              Мы работаем по всему миру, предоставляя доступ к нашим услугам для
+              клиентов из разных стран и регионов.
             </p>
           </div>
         </li>
@@ -43,10 +45,12 @@ export default function OurServices() {
           </div>
           <div className='flex flex-col'>
             <h3 className='font-bold text-[24px] leading-[28px] text-[#ffb932] mb-[13px]'>
-              Оптовые покупки
+              Простота Использования
             </h3>
             <p className='font-light text-[16px] leading-[19px] text-white'>
-              Рамки и место обучения кадров требуют от нас соответствующий
+              Наша платформа разработана с учетом удобства пользователей. Вы
+              сможете легко и быстро совершать финансовые операции в несколько
+              кликов.
             </p>
           </div>
         </li>
@@ -56,11 +60,11 @@ export default function OurServices() {
           </div>
           <div className='flex flex-col'>
             <h3 className='font-bold text-[24px] leading-[28px] text-[#ffb932] mb-[13px]'>
-              Выдача налличкой
+              Отличный Клиентский Сервис
             </h3>
             <p className='font-light text-[16px] leading-[19px] text-white'>
-              Значимость этих проблем настолько очевидна, что сложившаяся
-              структура играет роль в формировании модели
+              Наша команда клиентской поддержки всегда готова помочь вам в
+              решении ваших вопросов и проблем.
             </p>
           </div>
         </li>

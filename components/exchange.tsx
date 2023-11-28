@@ -495,7 +495,7 @@ export default function Exchange({
             ) : (
               ""
             )}
-            <p className='text-right font-bold text-[16px] mb-[10px]'>
+            <p className='text-center font-bold text-[16px] mb-[10px] lg:text-right'>
               Точный курс узнавайте у менеджера!
             </p>
             <div className='flex flex-row justify-center'>
