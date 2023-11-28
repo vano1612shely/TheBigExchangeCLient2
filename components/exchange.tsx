@@ -173,17 +173,18 @@ export default function Exchange({
           }
           if (
             formData.type === "transaction" &&
-            formData.transactionType === "offline" &&
-            (formData.transactionFrom == "" || formData.transactionTo == "")
+            formData.transactionType === "offline"
           ) {
-            setModalData({
-              ...modalData,
-              title: "Ошибка",
-              message: "Выберете города!",
-              buttonText: "Закрыть",
-            });
-            setShowModal(true);
-            return;
+            if (!formData.transactionTo || !formData.transactionFrom) {
+              setModalData({
+                ...modalData,
+                title: "Ошибка",
+                message: "Выберете города!",
+                buttonText: "Закрыть",
+              });
+              setShowModal(true);
+              return;
+            }
           }
           const res = await telegramService.sendData(formData);
           if (res === true) {
