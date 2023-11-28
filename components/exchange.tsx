@@ -161,7 +161,27 @@ export default function Exchange({
         action=''
         onSubmit={async (e) => {
           e.preventDefault();
-          console.log(formData);
+          if (formData.type === "offline") {
+            setModalData({
+              ...modalData,
+              title: "Ошибка",
+              message: "Выберете город!",
+              buttonText: "Закрыть",
+            });
+            return;
+          }
+          if (
+            formData.type === "transaction" &&
+            formData.transactionType === "offline"
+          ) {
+            setModalData({
+              ...modalData,
+              title: "Ошибка",
+              message: "Выберете города!",
+              buttonText: "Закрыть",
+            });
+            return;
+          }
           const res = await telegramService.sendData(formData);
           if (res === true) {
             setModalData({
