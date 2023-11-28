@@ -161,7 +161,7 @@ export default function Exchange({
         action=''
         onSubmit={async (e) => {
           e.preventDefault();
-          if (formData.type === "offline") {
+          if (formData.type === "offline" && formData.city == "") {
             setModalData({
               ...modalData,
               title: "Ошибка",
@@ -173,7 +173,8 @@ export default function Exchange({
           }
           if (
             formData.type === "transaction" &&
-            formData.transactionType === "offline"
+            formData.transactionType === "offline" &&
+            (formData.transactionFrom == "" || formData.transactionTo == "")
           ) {
             setModalData({
               ...modalData,
