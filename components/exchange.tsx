@@ -251,7 +251,7 @@ export default function Exchange({
             )}
             {showCityForm ? (
               <div className='flex flex-col w-full justify-around gap-[20px] md:flex-row mb-[30px] max-h-[500px]'>
-                <div className='max-h-[200px]'>
+                <div className='max-h-[200px] overflow-y-auto'>
                   <CityList
                     currentCity={
                       formData.transactionFrom ? formData.transactionFrom : ""
@@ -262,7 +262,7 @@ export default function Exchange({
                     title='Откуда:'
                   />
                 </div>
-                <div className='max-h-[200px]'>
+                <div className='max-h-[200px] overflow-y-auto'>
                   <CityList
                     currentCity={
                       formData.transactionTo ? formData.transactionTo : ""
