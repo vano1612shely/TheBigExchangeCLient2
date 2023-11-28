@@ -168,6 +168,7 @@ export default function Exchange({
               message: "Выберете город!",
               buttonText: "Закрыть",
             });
+            setShowModal(true);
             return;
           }
           if (
@@ -180,6 +181,7 @@ export default function Exchange({
               message: "Выберете города!",
               buttonText: "Закрыть",
             });
+            setShowModal(true);
             return;
           }
           const res = await telegramService.sendData(formData);
