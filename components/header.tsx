@@ -15,7 +15,7 @@ export default function Header({
 }) {
   return (
     <div className='font-raleway py-[40px] flex flex-col justify-between items-center  md:flex-row'>
-      <Link href={"/"} onClick={() => (window.location = "/")}>
+      <Link href={"/"} onClick={() => (window.location.href = "/")}>
         <Image
           src={logo}
           alt='logo'
