@@ -228,8 +228,8 @@ export default function Exchange({
                 <ReactSelect
                   isSearchable={false}
                   options={[
-                    { label: "Безнал", value: "online" },
                     { label: "Наличние", value: "offline" },
+                    { label: "Онлайн перевод", value: "online" },
                   ]}
                   value={transactionTypeValue}
                   styles={{
