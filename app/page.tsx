@@ -2,7 +2,6 @@
 import Container from "@/components/container";
 import SeoBlock from "@/components/seo-block";
 import Exchange from "@/components/exchange";
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import Department from "@/components/department";
 import { useEffect, useState } from "react";
 import OurServices from "@/components/ourServices";
@@ -11,7 +10,6 @@ import Footer from "@/components/footer";
 import infoService from "@/services/info/info.service";
 import { IDataResponse } from "@/services/info/info-service.interface";
 import Loader from "@/components/loader";
-const client = new QueryClient();
 export default function Home() {
   const [exchangeType, setExchangeType] = useState<
     "transaction" | "online" | "offline"

@@ -126,6 +126,7 @@ export default function Department() {
               Выберите ближайший пункт обмена валют:
             </h2>
             <Select
+              isSearchable={false}
               value={selectedAddress}
               options={address}
               styles={{

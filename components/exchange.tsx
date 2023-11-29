@@ -28,7 +28,7 @@ export default function Exchange({
   const [transactionTypeValue, setTransactionTypeValue] = useState<{
     value: string;
     label: string;
-  }>({ label: "Безнал", value: "online" });
+  }>({ label: "Наличние", value: "offline" });
   const [modalData, setModalData] = useState<IModal>({
     title: "",
     buttonText: "",
@@ -51,6 +51,7 @@ export default function Exchange({
     phone: "",
     email: "",
     exchange: 1,
+    transactionType: "offline",
   });
   useEffect(() => {
     const getData = async () => {
@@ -224,6 +225,7 @@ export default function Exchange({
                   Выберите тип перевода
                 </h4>
                 <ReactSelect
+                  isSearchable={false}
                   options={[
                     { label: "Безнал", value: "online" },
                     { label: "Наличние", value: "offline" },
@@ -478,6 +480,7 @@ export default function Exchange({
                 <div className='w-full'>
                   <h4 className='pl-[20px] mb-[10px] font-bold'>Банк:*</h4>
                   <SelectReact
+                    isSearchable={false}
                     options={banks}
                     className='text-white'
                     styles={{
