@@ -112,6 +112,7 @@ export default function Exchange({
           getCurrency: fiat[0],
         });
         setUpdateExchange(true);
+        setShowCityForm(true);
       };
       getData();
     } else {
