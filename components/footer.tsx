@@ -34,7 +34,7 @@ export default function Footer({
           <li>
             <Link
               className='flex gap-[10px] items-center hover:text-[#ffb932] duration-300 ease-linear'
-              href={"tel:+38(063) 269 91 25"}
+              href={`tel:+${phone}`}
             >
               <Image src={phoneIcon} alt='phone' />
               {phone}

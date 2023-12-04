@@ -36,7 +36,7 @@ export default function Header({
           Телеграм бот
         </Link>
         <Link
-          href={"tel:+38(063) 269 91 25"}
+          href={`tel:${phone}`}
           className='font-light text-[16px] flex flex-row items-center'
         >
           <Image src={call} alt='phone ' className='mr-[10px]' />
