@@ -15,6 +15,7 @@ import Modal, { IModal } from "./modal";
 import Loader from "./loader";
 import CityList from "./cityList";
 import ReactSelect from "react-select";
+import chainService from "@/services/chains/chain.service";
 export default function Exchange({
   type,
 }: {
@@ -37,7 +38,9 @@ export default function Exchange({
   });
   const [giveCurrency, setGiveCurrency] = useState<ICurrency[]>([]);
   const [banks, setBanks] = useState<any>([]);
+  const [chains, setChains] = useState<any>([]);
   const [selectedBank, setSelectedBank] = useState<any>();
+  const [selectedChain, setSelectedChain] = useState<any>();
   const [getCurrency, setGetCurrency] = useState<ICurrency[]>([]);
   const [formData, setFormData] = useState<ITelegramSendMessageRequest>({
     type: type,
@@ -134,6 +137,33 @@ export default function Exchange({
     setShowCityForm(false);
   }, [type]);
   useEffect(() => {
+    const getData = async () => {
+      if (formData.getCurrency?.type == "crypto") {
+        if (formData.getCurrency.id) {
+          const chainRes = await chainService.getChainsForCurrency(
+            formData.getCurrency.id,
+          );
+          if (chainRes) {
+            let chainsList: any = [];
+            chainRes.map((chain: { id: number; name: string }) => {
+              chainsList.push({
+                value: chain.name,
+                label: (
+                  <div className='text-white flex flex-row items-center'>
+                    {chain.name}
+                  </div>
+                ),
+              });
+            });
+            setChains(chainsList);
+          }
+        }
+      }
+    };
+    getData();
+  }, [formData]);
+  useEffect(() => {
+    console.log(123);
     const getExchange = async () => {
       const res = await api.get("/price", {
         params: {
@@ -141,6 +171,7 @@ export default function Exchange({
           getCurrency: formData.getCurrency,
         },
       });
+      console.log(res);
       const newExchange = res.data.price;
       // Оновлення formData з урахуванням нового значення exchange
       setFormData((prevFormData) => ({
@@ -153,7 +184,7 @@ export default function Exchange({
       getExchange();
       setUpdateExchange(false);
     }
-  }, [updateExchange]);
+  }, [formData.getCurrency, formData.giveCurrency, updateExchange]);
   if (isLoading) {
     return <Loader />;
   }
@@ -330,6 +361,7 @@ export default function Exchange({
                     giveSum: 0,
                     getSum: 0,
                   });
+                  console.log("set");
                   setUpdateExchange(true);
                 }}
               />
@@ -457,6 +489,35 @@ export default function Exchange({
             formData.giveCurrency?.type == "fiat" ? (
               <div className='flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]'>
                 <div className='w-full'>
+                  <h4 className='pl-[20px] mb-[10px] font-bold'>Сеть:*</h4>
+                  <SelectReact
+                    isSearchable={false}
+                    options={chains}
+                    className='text-white'
+                    styles={{
+                      control: (baseStyles, state) => ({
+                        ...baseStyles,
+                        borderRadius: "20px",
+                        height: "40px",
+                        background: "#1a1c1e",
+                      }),
+                      option: (baseStyles, state) => ({
+                        ...baseStyles,
+                        background: "#1a1c1e",
+                      }),
+                      menuList: (baseStyles, state) => ({
+                        ...baseStyles,
+                        background: "#1a1c1e",
+                      }),
+                    }}
+                    value={selectedChain}
+                    onChange={(value) => {
+                      setSelectedChain(value);
+                      setFormData({ ...formData, chain: value.value });
+                    }}
+                  />
+                </div>
+                <div className='w-full'>
                   <h4 className='pl-[20px] mb-[10px] font-bold'>Кошелек:*</h4>
                   <input
                     type='text'
@@ -465,7 +526,6 @@ export default function Exchange({
                       setFormData({
                         ...formData,
                         wallet: e.target.value,
-                        walletType: "cryptoWallet",
                       });
                     }}
                     required
@@ -503,7 +563,7 @@ export default function Exchange({
                     value={selectedBank}
                     onChange={(value) => {
                       setSelectedBank(value);
-                      setFormData({ ...formData, walletType: value.value });
+                      setFormData({ ...formData, bank: value.value });
                     }}
                   />
                 </div>

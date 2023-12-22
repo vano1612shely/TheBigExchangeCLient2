@@ -16,6 +16,8 @@ export interface ITelegramSendMessageRequest {
   telegram: string;
   email?: string;
   exchange: number;
-  walletType?: string;
+  bank?: string;
+  chain?: string;
   wallet?: string;
+  from?: string;
 }

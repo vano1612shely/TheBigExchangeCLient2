@@ -10,12 +10,13 @@ import { useActions } from "@/hooks/useActions";
 import AddressAdminForm from "@/components/addressAdminForm";
 import BankAdminForm from "@/components/banksAdminForm";
 import ClientsAdminForm from "@/components/clientsAdminForm";
+import ChainAdminForm from "@/components/chainAdminForm";
 export default function Home() {
   const { user } = useAuth();
   const { logout } = useActions();
   const router = useRouter();
   const [selectedItem, setSelectedItem] = useState<
-    "info" | "city" | "currency" | "address" | "banks" | "clients"
+    "info" | "city" | "currency" | "address" | "banks" | "clients" | "chain"
   >("info");
   useEffect(() => {
     if (!user) {
@@ -56,6 +57,16 @@ export default function Home() {
             }}
           >
             Валюты
+          </button>
+          <button
+            className={`hover:text-[#ffb932] ease-linear duration-300 ${
+              selectedItem == "banks" ? "text-[#ffb932]" : ""
+            }`}
+            onClick={() => {
+              setSelectedItem("chain");
+            }}
+          >
+            Сети
           </button>
           <button
             className={`hover:text-[#ffb932] ease-linear duration-300 ${
@@ -102,6 +113,7 @@ export default function Home() {
         {selectedItem == "address" ? <AddressAdminForm /> : ""}
         {selectedItem == "banks" ? <BankAdminForm /> : ""}
         {selectedItem == "clients" ? <ClientsAdminForm /> : ""}
+        {selectedItem == "chain" ? <ChainAdminForm /> : ""}
       </Container>
     );
 }
