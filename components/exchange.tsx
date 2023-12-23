@@ -163,7 +163,6 @@ export default function Exchange({
     getData();
   }, [formData]);
   useEffect(() => {
-    console.log(123);
     const getExchange = async () => {
       const res = await api.get("/price", {
         params: {
@@ -171,7 +170,6 @@ export default function Exchange({
           getCurrency: formData.getCurrency,
         },
       });
-      console.log(res);
       const newExchange = res.data.price;
       // Оновлення formData з урахуванням нового значення exchange
       setFormData((prevFormData) => ({
@@ -361,7 +359,6 @@ export default function Exchange({
                     giveSum: 0,
                     getSum: 0,
                   });
-                  console.log("set");
                   setUpdateExchange(true);
                 }}
               />
