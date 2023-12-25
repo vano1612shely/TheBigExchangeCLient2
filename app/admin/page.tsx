@@ -60,7 +60,7 @@ export default function Home() {
           </button>
           <button
             className={`hover:text-[#ffb932] ease-linear duration-300 ${
-              selectedItem == "banks" ? "text-[#ffb932]" : ""
+              selectedItem == "chain" ? "text-[#ffb932]" : ""
             }`}
             onClick={() => {
               setSelectedItem("chain");
