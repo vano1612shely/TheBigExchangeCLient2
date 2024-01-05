@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/logo.svg";
@@ -20,7 +21,7 @@ export default function Footer({
   instagram: string;
 }) {
   return (
-    <div className='flex flex-col gap-[50px] text-center p-[30px] pt-[50px] border-t justify-between md:gap-0 md:flex-row md:text-left'>
+    <div className='flex flex-col gap-[50px] text-center p-[30px] pt-[50px] border-t justify-between md:gap-0 md:flex-row md:text-left bottom-0 relative'>
       <div className='m-auto md:m-0'>
         <Link href={"#"}>
           <Image src={logo} alt='logo' />

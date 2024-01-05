@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import logo from "@/public/logo.svg";
 import Link from "next/link";
@@ -23,6 +24,12 @@ export default function Header({
         />
       </Link>
       <div className='flex flex-col items-center justify-end gap-[50px] md:flex-row '>
+        <Link
+          href='/blog'
+          className='flex flex-row rounded-[20px] text-[16px] text-[#fff] px-[20px] py-[8px] items-center font-bold hover:drop-shadow-3xl focus:drop-shadow-3xl ease-linear duration-200'
+        >
+          БЛОГ
+        </Link>
         <Link
           href={telegramBot ? telegramBot : "#"}
           className='bg-[#ffb932] flex flex-row rounded-[20px] text-[16px] text-[#1a1c1e] px-[20px] py-[8px] items-center font-bold hover:drop-shadow-3xl focus:drop-shadow-3xl ease-linear duration-200 active:bg-[#bb861f]'

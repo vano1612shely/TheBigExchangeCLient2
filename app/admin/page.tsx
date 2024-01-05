@@ -11,12 +11,20 @@ import AddressAdminForm from "@/components/addressAdminForm";
 import BankAdminForm from "@/components/banksAdminForm";
 import ClientsAdminForm from "@/components/clientsAdminForm";
 import ChainAdminForm from "@/components/chainAdminForm";
+import BlogAdminCreator from "@/components/blogAdminCreator";
 export default function Home() {
   const { user } = useAuth();
   const { logout } = useActions();
   const router = useRouter();
   const [selectedItem, setSelectedItem] = useState<
-    "info" | "city" | "currency" | "address" | "banks" | "clients" | "chain"
+    | "info"
+    | "city"
+    | "currency"
+    | "address"
+    | "banks"
+    | "clients"
+    | "chain"
+    | "blog"
   >("info");
   useEffect(() => {
     if (!user) {
@@ -90,6 +98,16 @@ export default function Home() {
           </button>
           <button
             className={`hover:text-[#ffb932] ease-linear duration-300 ${
+              selectedItem == "blog" ? "text-[#ffb932]" : ""
+            }`}
+            onClick={() => {
+              setSelectedItem("blog");
+            }}
+          >
+            Блог
+          </button>
+          <button
+            className={`hover:text-[#ffb932] ease-linear duration-300 ${
               selectedItem == "clients" ? "text-[#ffb932]" : ""
             }`}
             onClick={() => {
@@ -114,6 +132,7 @@ export default function Home() {
         {selectedItem == "banks" ? <BankAdminForm /> : ""}
         {selectedItem == "clients" ? <ClientsAdminForm /> : ""}
         {selectedItem == "chain" ? <ChainAdminForm /> : ""}
+        {selectedItem == "blog" ? <BlogAdminCreator /> : ""}
       </Container>
     );
 }
