@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./PostEditor.module.css";
+import "./PostEditor.module.css";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
