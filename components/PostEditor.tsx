@@ -89,6 +89,7 @@ const PostEditor = ({ postId }: { postId: number | null }) => {
   };
   const Quill = ReactQuill.Quill;
   var Font = Quill.import("formats/font");
+  Quill.register("modules/imageResize", ImageResize);
   Quill.register(Font, true);
   return (
     <Container>
@@ -175,6 +176,7 @@ const PostEditor = ({ postId }: { postId: number | null }) => {
                       "roboto",
                     ],
                   },
+                  ,
                   { size: [] },
                 ],
                 ["bold", "italic", "underline", "strike"],
