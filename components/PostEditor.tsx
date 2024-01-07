@@ -89,8 +89,6 @@ const PostEditor = ({ postId }: { postId: number | null }) => {
   };
   const Quill = ReactQuill.Quill;
   var Font = Quill.import("formats/font");
-  Font.whitelist = ["Arial", "Raleway", "sans-serif"];
-  Quill.register("modules/imageResize", ImageResize);
   Quill.register(Font, true);
   return (
     <Container>
@@ -165,7 +163,20 @@ const PostEditor = ({ postId }: { postId: number | null }) => {
           <ReactQuill
             modules={{
               toolbar: [
-                [{ font: Font.whitelist }, { size: [] }],
+                [
+                  {
+                    font: [
+                      "monospace",
+                      "serif",
+                      "raleway",
+                      "montserrat",
+                      "lato",
+                      "rubik",
+                      "roboto",
+                    ],
+                  },
+                  { size: [] },
+                ],
                 ["bold", "italic", "underline", "strike"],
                 [{ color: [] }, { background: [] }],
                 [{ script: "super" }, { script: "sub" }],
