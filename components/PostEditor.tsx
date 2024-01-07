@@ -175,6 +175,7 @@ const PostEditor = ({ postId }: { postId: number | null }) => {
                       "lato",
                       "rubik",
                       "roboto",
+                      "arial",
                     ],
                   },
                   ,
