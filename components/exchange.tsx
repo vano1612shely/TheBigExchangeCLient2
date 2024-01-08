@@ -283,7 +283,7 @@ export default function Exchange({
       >
         <div className='w-full drop-shadow-3xl-light bg-[#1a1c1e] rounded-[10px] p-[20px] flex flex-col gap-[10px] lg:flex-row rounded-t-none'>
           {showCityList ? (
-            <div className='max-h-[300px] lg:max-h-[625px]'>
+            <div className='h-[300px] lg:h-[625px]'>
               <CityList
                 townList={townList}
                 currentCity={formData.city ? formData.city : ""}
@@ -353,7 +353,7 @@ export default function Exchange({
             )}
             {showCityForm ? (
               <div className='flex flex-col w-full justify-around gap-[20px] md:flex-row mb-[30px] max-h-[500px]'>
-                <div className='max-h-[200px] md:overflow-y-auto '>
+                <div className='h-[300px]'>
                   <div className='md:hidden'>
                     <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
                       Откуда:
@@ -403,7 +403,7 @@ export default function Exchange({
                     />
                   </div>
                 </div>
-                <div className='max-h-[300px] md:overflow-y-auto'>
+                <div className='h-[300px]'>
                   <div className='md:hidden'>
                     <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
                       Куда:
