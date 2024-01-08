@@ -379,12 +379,14 @@ export default function Exchange({
                         }),
                       }}
                       value={transactionFrom}
-                      onChange={(value: SelectOption) => {
-                        setTransactionFrom(value);
-                        setFormData({
-                          ...formData,
-                          transactionFrom: value.value,
-                        });
+                      onChange={(value) => {
+                        if (value !== null) {
+                          setTransactionFrom(value);
+                          setFormData({
+                            ...formData,
+                            transactionFrom: value.value,
+                          });
+                        }
                       }}
                     />
                   </div>
@@ -427,12 +429,14 @@ export default function Exchange({
                         }),
                       }}
                       value={transactionTo}
-                      onChange={(value: SelectOption) => {
-                        setTransactionTo(value);
-                        setFormData({
-                          ...formData,
-                          transactionTo: value.value,
-                        });
+                      onChange={(value) => {
+                        if (value !== null) {
+                          setTransactionTo(value);
+                          setFormData({
+                            ...formData,
+                            transactionTo: value.value,
+                          });
+                        }
                       }}
                     />
                   </div>
