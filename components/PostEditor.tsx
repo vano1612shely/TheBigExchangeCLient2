@@ -168,14 +168,14 @@ const PostEditor = ({ postId }: { postId: number | null }) => {
                 [
                   {
                     font: [
-                      "Monospace",
-                      "Serif",
-                      "Raleway",
-                      "Montserrat",
-                      "Lato",
-                      "Rubik",
-                      "Roboto",
-                      "Arial",
+                      "monospace",
+                      "serif",
+                      "raleway",
+                      "montserrat",
+                      "lato",
+                      "rubik",
+                      "roboto",
+                      "arial",
                     ],
                   },
                   ,
