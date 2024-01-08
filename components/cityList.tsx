@@ -32,7 +32,7 @@ export default function CityList({
       <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
         {title}
       </h3>
-      <ul className='overflow-y-auto list-none font-normal pr-[10px] h-full'>
+      <ul className='overflow-y-auto list-none font-normal pr-[10px] h-full overflow-y-auto'>
         {townList &&
           Object.entries(townList).map(([country, cities]) => {
             return (
