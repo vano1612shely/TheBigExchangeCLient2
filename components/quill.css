@@ -24,31 +24,31 @@
 
 .ql-picker.ql-font .ql-picker-label[data-value="roboto"]::before,
 .ql-picker.ql-font .ql-picker-item[data-value="roboto"]::before {
-  font-family: "Roboto", cursive !important;
+  font-family: "Roboto" !important;
   content: "Roboto" !important;
 }
 
 .ql-picker.ql-font .ql-picker-label[data-value="raleway"]::before,
 .ql-picker.ql-font .ql-picker-item[data-value="raleway"]::before {
-  font-family: "Raleway", cursive !important;
+  font-family: "Raleway" !important;
   content: "Raleway" !important;
 }
 
 .ql-picker.ql-font .ql-picker-label[data-value="montserrat"]::before,
 .ql-picker.ql-font .ql-picker-item[data-value="montserrat"]::before {
-  font-family: "Montserrat", cursive !important;
+  font-family: "Montserrat" !important;
   content: "Montserrat" !important;
 }
 
 .ql-picker.ql-font .ql-picker-label[data-value="lato"]::before,
 .ql-picker.ql-font .ql-picker-item[data-value="lato"]::before {
-  font-family: "Lato", cursive !important;
+  font-family: "Lato" !important;
   content: "Lato" !important;
 }
 
 .ql-picker.ql-font .ql-picker-label[data-value="rubik"]::before,
 .ql-picker.ql-font .ql-picker-item[data-value="rubik"]::before {
-  font-family: "Rubik", cursive !important;
+  font-family: "Rubik" !important;
   content: "Rubik" !important;
 }
 
