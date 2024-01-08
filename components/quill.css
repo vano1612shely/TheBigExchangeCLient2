@@ -22,32 +22,32 @@
   font-family: "Arial" !important;
 }
 
-.ql-picker.ql-font .ql-picker-label[data-value="Roboto"]::before,
-.ql-picker.ql-font .ql-picker-item[data-value="Roboto"]::before {
+.ql-picker.ql-font .ql-picker-label[data-value="roboto"]::before,
+.ql-picker.ql-font .ql-picker-item[data-value="roboto"]::before {
   font-family: "Roboto", cursive !important;
   content: "Roboto" !important;
 }
 
-.ql-picker.ql-font .ql-picker-label[data-value="Raleway"]::before,
-.ql-picker.ql-font .ql-picker-item[data-value="Raleway"]::before {
+.ql-picker.ql-font .ql-picker-label[data-value="raleway"]::before,
+.ql-picker.ql-font .ql-picker-item[data-value="raleway"]::before {
   font-family: "Raleway", cursive !important;
   content: "Raleway" !important;
 }
 
-.ql-picker.ql-font .ql-picker-label[data-value="Montserrat"]::before,
-.ql-picker.ql-font .ql-picker-item[data-value="Montserrat"]::before {
+.ql-picker.ql-font .ql-picker-label[data-value="montserrat"]::before,
+.ql-picker.ql-font .ql-picker-item[data-value="montserrat"]::before {
   font-family: "Montserrat", cursive !important;
   content: "Montserrat" !important;
 }
 
-.ql-picker.ql-font .ql-picker-label[data-value="Lato"]::before,
-.ql-picker.ql-font .ql-picker-item[data-value="Lato"]::before {
+.ql-picker.ql-font .ql-picker-label[data-value="lato"]::before,
+.ql-picker.ql-font .ql-picker-item[data-value="lato"]::before {
   font-family: "Lato", cursive !important;
   content: "Lato" !important;
 }
 
-.ql-picker.ql-font .ql-picker-label[data-value="Rubik"]::before,
-.ql-picker.ql-font .ql-picker-item[data-value="Rubik"]::before {
+.ql-picker.ql-font .ql-picker-label[data-value="rubik"]::before,
+.ql-picker.ql-font .ql-picker-item[data-value="rubik"]::before {
   font-family: "Rubik", cursive !important;
   content: "Rubik" !important;
 }
