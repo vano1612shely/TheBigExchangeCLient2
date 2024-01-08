@@ -2,7 +2,7 @@ import Post from "@/components/Post";
 import Container from "@/components/container";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
-import "react-quill/dist/quill.snow.css";
+import "@/components/quill.css";
 import { URL } from "@/services/api/interceptors";
 import { IDataResponse } from "@/services/info/info-service.interface";
 import axios from "axios";
