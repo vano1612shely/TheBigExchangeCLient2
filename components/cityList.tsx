@@ -6,15 +6,21 @@ interface ICityList {
   setCity: (city: string) => void;
   currentCity: string;
   title: string;
+  height: number | null;
 }
 export default function CityList({
   townList,
   setCity,
   currentCity,
   title = "Выберите город",
+  height = null,
 }: ICityList) {
   return (
-    <div className={`basis-1 flex flex-col lg:basis-1/3 h-full`}>
+    <div
+      className={`basis-1 flex flex-col lg:basis-1/3 ${
+        height ? "h-[" + height + "px]" : "h-full"
+      }`}
+    >
       <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
         {title}
       </h3>
