@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./PostEditor.module.css";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
+import "./quill.css";
 import ReactQuill from "react-quill";
 import ImageResize from "quill-image-resize-module-react";
 import postService from "@/services/post/post.service";
