@@ -90,7 +90,7 @@ const PostEditor = ({ postId }: { postId: number | null }) => {
   };
   const Quill = ReactQuill.Quill;
   var Font = Quill.import("formats/font");
-  Font.whitelist = ["Arial", "Raleway", "sans-serif"];
+  Font.whitelist = ["arial", "raleway", "sans-serif"];
   Quill.register("modules/imageResize", ImageResize);
   Quill.register(Font, true);
   return (
