@@ -6,14 +6,12 @@ interface ICityList {
   setCity: (city: string) => void;
   currentCity: string;
   title: string;
-  maxHeight: string;
 }
 export default function CityList({
   townList,
   setCity,
   currentCity,
   title = "Выберите город",
-  maxHeight,
 }: ICityList) {
   return (
     <div className={`basis-1 flex flex-col lg:basis-1/3 h-full`}>
