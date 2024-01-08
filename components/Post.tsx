@@ -5,6 +5,8 @@ import "moment/locale/ru";
 import Image from "next/image";
 import { URL } from "@/services/api/interceptors";
 import PostContent from "./PostContent";
+import "react-quill/dist/quill.bubble.css";
+import "./quill.css";
 // import ReactQuill from "react-quill";
 // import PostContent from "./PostContent";
 export default function Post({ post }: { post: IPost }) {
@@ -24,13 +26,12 @@ export default function Post({ post }: { post: IPost }) {
         alt=''
         className='w-full max-h-[400px] object-cover rounded-lg mb-[32px]'
       />
-      {/* <div
+      <div
         className='ql-editor'
-        style={{ fontFamily: "Raleway !important" }}
         id='content'
         dangerouslySetInnerHTML={{ __html: post.content }}
-      /> */}
-      <PostContent content={post.content} />
+      />
+      {/* <PostContent content={post.content} /> */}
     </div>
   );
 }
