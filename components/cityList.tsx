@@ -28,11 +28,11 @@ export default function CityList({
     return <></>;
   }
   return (
-    <div className='basis-1 flex flex-col lg:basis-1/3 max-h-full'>
+    <div className='basis-1 flex flex-col lg:basis-1/3 max-h-[300px] lg:max-h-[625px]'>
       <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
         {title}
       </h3>
-      <ul className='overflow-y-auto list-none font-normal pr-[10px] h-full overflow-y-auto'>
+      <ul className='overflow-y-auto list-none font-normal pr-[10px] h-full'>
         {townList &&
           Object.entries(townList).map(([country, cities]) => {
             return (
