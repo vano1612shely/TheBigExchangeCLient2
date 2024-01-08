@@ -1,32 +1,18 @@
 import { ICityByCountry } from "@/services/city/city-service.interface";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import cityService from "@/services/city/city.service";
 import pin from "@/public/ic-map-pin.svg";
 interface ICityList {
+  townList: ICityByCountry;
   setCity: (city: string) => void;
   currentCity: string;
   title: string;
 }
 export default function CityList({
+  townList,
   setCity,
   currentCity,
   title = "Выберите город",
 }: ICityList) {
-  const [townList, setTownList] = useState<ICityByCountry>({});
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  useEffect(() => {
-    const getData = async () => {
-      setIsLoading(true);
-      const res = await cityService.getList();
-      if (res) setTownList(res);
-      setIsLoading(false);
-    };
-    getData();
-  }, []);
-  if (isLoading) {
-    return <></>;
-  }
   return (
     <div className='basis-1 flex flex-col lg:basis-1/3 max-h-[300px] lg:max-h-[625px]'>
       <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>

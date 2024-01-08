@@ -16,12 +16,48 @@ import Loader from "./loader";
 import CityList from "./cityList";
 import ReactSelect from "react-select";
 import chainService from "@/services/chains/chain.service";
+import { ICityByCountry } from "@/services/city/city-service.interface";
+import cityService from "@/services/city/city.service";
+interface SelectOption {
+  label: string;
+  value: string;
+}
+export interface GroupedOption {
+  readonly label: string;
+  readonly options: readonly SelectOption[];
+}
+function transformToOptions(townList: ICityByCountry): GroupedOption[] {
+  const options: GroupedOption[] = [];
+
+  Object.keys(townList).forEach((country) => {
+    const cities = townList[country].map((city) => ({
+      label: city.city_name,
+      value: city.city_name,
+    }));
+
+    options.push({
+      label: country,
+      options: cities,
+    });
+  });
+
+  return options;
+}
+
 export default function Exchange({
   type,
 }: {
   type: "transaction" | "online" | "offline";
 }) {
   const [showCityList, setShowCityList] = useState<boolean>(true);
+  const [transactionFrom, setTransactionFrom] = useState<SelectOption>({
+    label: "",
+    value: "",
+  });
+  const [transactionTo, setTransactionTo] = useState<SelectOption>({
+    label: "",
+    value: "",
+  });
   const [showCityForm, setShowCityForm] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [updateExchange, setUpdateExchange] = useState<boolean>(false);
@@ -42,6 +78,7 @@ export default function Exchange({
   const [selectedBank, setSelectedBank] = useState<any>();
   const [selectedChain, setSelectedChain] = useState<any>();
   const [getCurrency, setGetCurrency] = useState<ICurrency[]>([]);
+  const [townList, setTownList] = useState<ICityByCountry>({});
   const [formData, setFormData] = useState<ITelegramSendMessageRequest>({
     type: type,
     city: "",
@@ -62,6 +99,8 @@ export default function Exchange({
       const give = await currencyService.getCrypto();
       setGiveCurrency(give);
       const get = await currencyService.getFiat();
+      const towns = await cityService.getList();
+      if (towns) setTownList(towns);
       setGetCurrency(get);
       const banksRes = await banksService.getAll();
       if (banksRes) {
@@ -186,6 +225,12 @@ export default function Exchange({
   if (isLoading) {
     return <Loader />;
   }
+  const formatGroupLabel = (data: GroupedOption) => (
+    <div>
+      <span>{data.label}</span>
+      <span>{data.options.length}</span>
+    </div>
+  );
   return (
     <>
       <form
@@ -240,6 +285,7 @@ export default function Exchange({
           {showCityList ? (
             <div className='max-h-[300px] lg:max-h-[625px]'>
               <CityList
+                townList={townList}
                 currentCity={formData.city ? formData.city : ""}
                 setCity={(city) => setFormData({ ...formData, city: city })}
                 title='Выберите город'
@@ -307,27 +353,101 @@ export default function Exchange({
             )}
             {showCityForm ? (
               <div className='flex flex-col w-full justify-around gap-[20px] md:flex-row mb-[30px] max-h-[500px]'>
-                <div className='max-h-[200px] overflow-y-auto'>
-                  <CityList
-                    currentCity={
-                      formData.transactionFrom ? formData.transactionFrom : ""
-                    }
-                    setCity={(city) =>
-                      setFormData({ ...formData, transactionFrom: city })
-                    }
-                    title='Откуда:'
-                  />
+                <div className='max-h-[200px] md:overflow-y-auto '>
+                  <div className='md:hidden'>
+                    <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
+                      Откуда:
+                    </h3>
+                    <SelectReact
+                      isSearchable={false}
+                      options={transformToOptions(townList)}
+                      className='text-white'
+                      styles={{
+                        control: (baseStyles, state) => ({
+                          ...baseStyles,
+                          borderRadius: "20px",
+                          height: "40px",
+                          background: "#1a1c1e",
+                        }),
+                        option: (baseStyles, state) => ({
+                          ...baseStyles,
+                          background: "#1a1c1e",
+                        }),
+                        menuList: (baseStyles, state) => ({
+                          ...baseStyles,
+                          background: "#1a1c1e",
+                        }),
+                      }}
+                      value={transactionFrom}
+                      onChange={(value: SelectOption) => {
+                        setTransactionFrom(value);
+                        setFormData({
+                          ...formData,
+                          transactionFrom: value.value,
+                        });
+                      }}
+                    />
+                  </div>
+                  <div className='hidden md:block'>
+                    <CityList
+                      townList={townList}
+                      currentCity={
+                        formData.transactionFrom ? formData.transactionFrom : ""
+                      }
+                      setCity={(city) =>
+                        setFormData({ ...formData, transactionFrom: city })
+                      }
+                      title='Откуда:'
+                    />
+                  </div>
                 </div>
-                <div className='max-h-[200px] overflow-y-auto'>
-                  <CityList
-                    currentCity={
-                      formData.transactionTo ? formData.transactionTo : ""
-                    }
-                    setCity={(city) =>
-                      setFormData({ ...formData, transactionTo: city })
-                    }
-                    title='Куда:'
-                  />
+                <div className='max-h-[200px] md:overflow-y-auto'>
+                  <div className='md:hidden'>
+                    <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
+                      Куда:
+                    </h3>
+                    <SelectReact
+                      isSearchable={false}
+                      options={transformToOptions(townList)}
+                      className='text-white'
+                      styles={{
+                        control: (baseStyles, state) => ({
+                          ...baseStyles,
+                          borderRadius: "20px",
+                          height: "40px",
+                          background: "#1a1c1e",
+                        }),
+                        option: (baseStyles, state) => ({
+                          ...baseStyles,
+                          background: "#1a1c1e",
+                        }),
+                        menuList: (baseStyles, state) => ({
+                          ...baseStyles,
+                          background: "#1a1c1e",
+                        }),
+                      }}
+                      value={transactionTo}
+                      onChange={(value: SelectOption) => {
+                        setTransactionTo(value);
+                        setFormData({
+                          ...formData,
+                          transactionTo: value.value,
+                        });
+                      }}
+                    />
+                  </div>
+                  <div className='hidden md:block'>
+                    <CityList
+                      townList={townList}
+                      currentCity={
+                        formData.transactionTo ? formData.transactionTo : ""
+                      }
+                      setCity={(city) =>
+                        setFormData({ ...formData, transactionTo: city })
+                      }
+                      title='Куда:'
+                    />
+                  </div>
                 </div>
               </div>
             ) : (
