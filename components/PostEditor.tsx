@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import styles from "./PostEditor.module.css";
-import "./PostEditor.module.css";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
+import "./PostEditor.module.css";
 import ReactQuill from "react-quill";
 import ImageResize from "quill-image-resize-module-react";
 import postService from "@/services/post/post.service";
@@ -90,6 +90,16 @@ const PostEditor = ({ postId }: { postId: number | null }) => {
   };
   const Quill = ReactQuill.Quill;
   var Font = Quill.import("formats/font");
+  Font.whiteList = [
+    "monospace",
+    "serif",
+    "raleway",
+    "montserrat",
+    "lato",
+    "rubik",
+    "roboto",
+    "arial",
+  ];
   Quill.register("modules/imageResize", ImageResize);
   Quill.register(Font, true);
   return (
@@ -167,16 +177,7 @@ const PostEditor = ({ postId }: { postId: number | null }) => {
               toolbar: [
                 [
                   {
-                    font: [
-                      "monospace",
-                      "serif",
-                      "raleway",
-                      "montserrat",
-                      "lato",
-                      "rubik",
-                      "roboto",
-                      "arial",
-                    ],
+                    font: Font.whiteList,
                   },
                   ,
                   { size: [] },
