@@ -4,7 +4,6 @@ import moment from "moment";
 import "moment/locale/ru";
 import Image from "next/image";
 import { URL } from "@/services/api/interceptors";
-import "react-quill/dist/quill.bubble.css";
 import PostContent from "./PostContent";
 // import ReactQuill from "react-quill";
 // import PostContent from "./PostContent";
