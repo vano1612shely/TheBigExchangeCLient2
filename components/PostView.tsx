@@ -9,6 +9,7 @@ import Image from "next/image";
 import { URL } from "@/services/api/interceptors";
 import ReactQuill from "react-quill";
 import { useRouter } from "next/navigation";
+import "./quill.css";
 export default function PostView({ postId }: { postId: number }) {
   const [post, setPost] = useState<IPost | null>(null);
   const router = useRouter();
