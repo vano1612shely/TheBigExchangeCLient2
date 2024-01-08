@@ -1,18 +1,18 @@
-.ql-picker.ql-font .ql-picker-label[data-value="Arial"]::before,
-.ql-picker.ql-font .ql-picker-item[data-value="Arial"]::before {
+.ql-picker.ql-font .ql-picker-label[data-value="arial"]::before,
+.ql-picker.ql-font .ql-picker-item[data-value="arial"]::before {
   font-family: "Arial" !important;
   content: "Arial";
 }
 
-.ql-picker.ql-font .ql-picker-label[data-value="Raleway"]::before,
-.ql-picker.ql-font .ql-picker-item[data-value="Raleway"]::before {
+.ql-picker.ql-font .ql-picker-label[data-value="raleway"]::before,
+.ql-picker.ql-font .ql-picker-item[data-value="raleway"]::before {
   font-family: "Raleway" !important;
   content: "Raleway";
 }
 
 .ql-font-Raleway {
-  font-family: "Raleway";
+  font-family: "Raleway" !important;
 }
 .ql-font-Arial {
-  font-family: "Arial";
+  font-family: "Arial" !important;
 }
