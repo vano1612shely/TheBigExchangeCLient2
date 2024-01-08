@@ -403,7 +403,7 @@ export default function Exchange({
                     />
                   </div>
                 </div>
-                <div className='max-h-[200px] md:overflow-y-auto'>
+                <div className='max-h-[300px] md:overflow-y-auto'>
                   <div className='md:hidden'>
                     <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
                       Куда:
