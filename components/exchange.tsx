@@ -284,8 +284,8 @@ export default function Exchange({
       >
         <div className='w-full drop-shadow-3xl-light bg-[#1a1c1e] rounded-[10px] p-[20px] flex flex-col gap-[10px] lg:flex-row rounded-t-none'>
           {showCityList ? (
-            <div className='h-[300px] lg:h-[625px]'>
-              <div className='md:hidden'>
+            <div className='lg:h-[625px]'>
+              <div className='lg:hidden'>
                 <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
                   Выберите город
                 </h3>
@@ -321,13 +321,13 @@ export default function Exchange({
                   }}
                 />
               </div>
-              <div className='hidden md:block'>
+              <div className='hidden lg:block'>
                 <CityList
                   townList={townList}
                   currentCity={formData.city ? formData.city : ""}
                   setCity={(city) => setFormData({ ...formData, city: city })}
                   title='Выберите город'
-                  height={null}
+                  height={625}
                 />
               </div>
             </div>
