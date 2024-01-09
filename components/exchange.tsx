@@ -321,7 +321,7 @@ export default function Exchange({
                   }}
                 />
               </div>
-              <div className='hidden lg:block'>
+              <div className='hidden lg:block h-full overflow-y-auto'>
                 <CityList
                   townList={townList}
                   currentCity={formData.city ? formData.city : ""}
