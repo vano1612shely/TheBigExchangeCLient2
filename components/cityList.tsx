@@ -19,7 +19,7 @@ export default function CityList({
     <div
       className={`basis-1 flex flex-col lg:basis-1/3 ${
         height ? "h-[" + height + "px]" : "h-full"
-      }`}
+      } overflow-y-auto`}
     >
       <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
         {title}
