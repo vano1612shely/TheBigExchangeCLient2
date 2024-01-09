@@ -337,7 +337,7 @@ export default function Exchange({
           <div className='flex-1'>
             {type === "transaction" ? (
               <div className='flex flex-col justify-between mb-[30px]'>
-                <h4 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[10px] font-raleway'>
+                <h4 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
                   Выберите тип перевода
                 </h4>
                 <ReactSelect
