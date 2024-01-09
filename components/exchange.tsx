@@ -75,6 +75,7 @@ export default function Exchange({
   const [giveCurrency, setGiveCurrency] = useState<ICurrency[]>([]);
   const [banks, setBanks] = useState<any>([]);
   const [chains, setChains] = useState<any>([]);
+  const [selectedCity, setSelectedCity] = useState<any>();
   const [selectedBank, setSelectedBank] = useState<any>();
   const [selectedChain, setSelectedChain] = useState<any>();
   const [getCurrency, setGetCurrency] = useState<ICurrency[]>([]);
@@ -284,13 +285,51 @@ export default function Exchange({
         <div className='w-full drop-shadow-3xl-light bg-[#1a1c1e] rounded-[10px] p-[20px] flex flex-col gap-[10px] lg:flex-row rounded-t-none'>
           {showCityList ? (
             <div className='h-[300px] lg:h-[625px]'>
-              <CityList
-                townList={townList}
-                currentCity={formData.city ? formData.city : ""}
-                setCity={(city) => setFormData({ ...formData, city: city })}
-                title='Выберите город'
-                height={null}
-              />
+              <div className='md:hidden'>
+                <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
+                  Выберите город
+                </h3>
+                <SelectReact
+                  isSearchable={false}
+                  options={transformToOptions(townList)}
+                  className='text-white'
+                  styles={{
+                    control: (baseStyles, state) => ({
+                      ...baseStyles,
+                      borderRadius: "20px",
+                      height: "40px",
+                      background: "#1a1c1e",
+                    }),
+                    option: (baseStyles, state) => ({
+                      ...baseStyles,
+                      background: "#1a1c1e",
+                    }),
+                    menuList: (baseStyles, state) => ({
+                      ...baseStyles,
+                      background: "#1a1c1e",
+                    }),
+                  }}
+                  value={selectedCity}
+                  onChange={(value) => {
+                    if (value !== null) {
+                      setSelectedCity(value);
+                      setFormData({
+                        ...formData,
+                        city: value.value,
+                      });
+                    }
+                  }}
+                />
+              </div>
+              <div className='hidden md:block'>
+                <CityList
+                  townList={townList}
+                  currentCity={formData.city ? formData.city : ""}
+                  setCity={(city) => setFormData({ ...formData, city: city })}
+                  title='Выберите город'
+                  height={null}
+                />
+              </div>
             </div>
           ) : (
             ""
