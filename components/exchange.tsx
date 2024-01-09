@@ -284,7 +284,7 @@ export default function Exchange({
       >
         <div className='w-full drop-shadow-3xl-light bg-[#1a1c1e] rounded-[10px] p-[20px] flex flex-col gap-[10px] lg:flex-row rounded-t-none'>
           {showCityList ? (
-            <div className='lg:h-[625px]'>
+            <div className='lg:h-[625px] mb-[30px] lg:mb-0'>
               <div className='lg:hidden'>
                 <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
                   Выберите город
