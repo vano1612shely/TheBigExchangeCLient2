@@ -19,8 +19,11 @@ const xolonium = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "The big exchange test",
-  description: "The big exchange",
+  title: "The big exchange",
+  description:
+    "TheBigExchange - мгновенный обмен криптовалют в Украине. Низкие комиссии, безопасность, поддержка 24/7. Просто, быстро, надежно!",
+  keywords:
+    "Обмен криптовалют в Украине, Моментальный обмен цифровых активов, Надежный обменник крипты, Лучшие курсы обмена в Украине, Безопасный обмен криптовалюты, Обмен Bitcoin, Ethereum, и других монет, Удобный процесс покупки и продажи крипты, Круглосуточная поддержка обмена, Низкие комиссии за обмен, Обменник с прозрачными условиями",
   viewport: "content='width=device-width, initial-scale=1.0'",
 };
 export default function RootLayout({
