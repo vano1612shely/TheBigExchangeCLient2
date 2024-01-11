@@ -19,7 +19,7 @@ const xolonium = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "The big exchange",
+  title: "The Big Exchange",
   description:
     "TheBigExchange - мгновенный обмен криптовалют в Украине. Низкие комиссии, безопасность, поддержка 24/7. Просто, быстро, надежно!",
   keywords:
