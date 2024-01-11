@@ -27,8 +27,8 @@ export async function generateMetadata(
   const post = await fetchPost(Number(params.id));
   return {
     title: post.title,
-    description: "post.description",
-    keywords: "post.keywords",
+    description: post.description,
+    keywords: post.keywords,
   };
 }
 export default async function Page({ params }: { params: { id: string } }) {
