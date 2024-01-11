@@ -393,107 +393,77 @@ export default function Exchange({
             )}
             {showCityForm ? (
               <div className='flex flex-col w-full justify-around gap-[20px] md:flex-row mb-[30px] max-h-[620px]'>
-                <div className='md:h-[300px]'>
-                  <div className='md:hidden'>
-                    <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
-                      Откуда:
-                    </h3>
-                    <SelectReact
-                      isSearchable={false}
-                      options={transformToOptions(townList)}
-                      className='text-white'
-                      styles={{
-                        control: (baseStyles, state) => ({
-                          ...baseStyles,
-                          borderRadius: "20px",
-                          height: "40px",
-                          background: "#1a1c1e",
-                        }),
-                        option: (baseStyles, state) => ({
-                          ...baseStyles,
-                          background: "#1a1c1e",
-                        }),
-                        menuList: (baseStyles, state) => ({
-                          ...baseStyles,
-                          background: "#1a1c1e",
-                        }),
-                      }}
-                      value={transactionFrom}
-                      onChange={(value) => {
-                        if (value !== null) {
-                          setTransactionFrom(value);
-                          setFormData({
-                            ...formData,
-                            transactionFrom: value.value,
-                          });
-                        }
-                      }}
-                    />
-                  </div>
-                  <div className='hidden md:block'>
-                    <CityList
-                      townList={townList}
-                      currentCity={
-                        formData.transactionFrom ? formData.transactionFrom : ""
+                <div>
+                  <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
+                    Откуда:
+                  </h3>
+                  <SelectReact
+                    isSearchable={false}
+                    options={transformToOptions(townList)}
+                    className='text-white'
+                    styles={{
+                      control: (baseStyles, state) => ({
+                        ...baseStyles,
+                        borderRadius: "20px",
+                        height: "40px",
+                        background: "#1a1c1e",
+                      }),
+                      option: (baseStyles, state) => ({
+                        ...baseStyles,
+                        background: "#1a1c1e",
+                      }),
+                      menuList: (baseStyles, state) => ({
+                        ...baseStyles,
+                        background: "#1a1c1e",
+                      }),
+                    }}
+                    value={transactionFrom}
+                    onChange={(value) => {
+                      if (value !== null) {
+                        setTransactionFrom(value);
+                        setFormData({
+                          ...formData,
+                          transactionFrom: value.value,
+                        });
                       }
-                      setCity={(city) =>
-                        setFormData({ ...formData, transactionFrom: city })
-                      }
-                      title='Откуда:'
-                      height={300}
-                    />
-                  </div>
+                    }}
+                  />
                 </div>
-                <div className='md:h-[300px]'>
-                  <div className='md:hidden'>
-                    <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
-                      Куда:
-                    </h3>
-                    <SelectReact
-                      isSearchable={false}
-                      options={transformToOptions(townList)}
-                      className='text-white'
-                      styles={{
-                        control: (baseStyles, state) => ({
-                          ...baseStyles,
-                          borderRadius: "20px",
-                          height: "40px",
-                          background: "#1a1c1e",
-                        }),
-                        option: (baseStyles, state) => ({
-                          ...baseStyles,
-                          background: "#1a1c1e",
-                        }),
-                        menuList: (baseStyles, state) => ({
-                          ...baseStyles,
-                          background: "#1a1c1e",
-                        }),
-                      }}
-                      value={transactionTo}
-                      onChange={(value) => {
-                        if (value !== null) {
-                          setTransactionTo(value);
-                          setFormData({
-                            ...formData,
-                            transactionTo: value.value,
-                          });
-                        }
-                      }}
-                    />
-                  </div>
-                  <div className='hidden md:block'>
-                    <CityList
-                      townList={townList}
-                      currentCity={
-                        formData.transactionTo ? formData.transactionTo : ""
+                <div>
+                  <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
+                    Куда:
+                  </h3>
+                  <SelectReact
+                    isSearchable={false}
+                    options={transformToOptions(townList)}
+                    className='text-white'
+                    styles={{
+                      control: (baseStyles, state) => ({
+                        ...baseStyles,
+                        borderRadius: "20px",
+                        height: "40px",
+                        background: "#1a1c1e",
+                      }),
+                      option: (baseStyles, state) => ({
+                        ...baseStyles,
+                        background: "#1a1c1e",
+                      }),
+                      menuList: (baseStyles, state) => ({
+                        ...baseStyles,
+                        background: "#1a1c1e",
+                      }),
+                    }}
+                    value={transactionTo}
+                    onChange={(value) => {
+                      if (value !== null) {
+                        setTransactionTo(value);
+                        setFormData({
+                          ...formData,
+                          transactionTo: value.value,
+                        });
                       }
-                      setCity={(city) =>
-                        setFormData({ ...formData, transactionTo: city })
-                      }
-                      title='Куда:'
-                      height={300}
-                    />
-                  </div>
+                    }}
+                  />
                 </div>
               </div>
             ) : (
