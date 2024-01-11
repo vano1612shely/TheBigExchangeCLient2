@@ -19,7 +19,7 @@ const xolonium = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "The big exchange",
+  title: "The big exchange test",
   description: "The big exchange",
   viewport: "content='width=device-width, initial-scale=1.0'",
 };
