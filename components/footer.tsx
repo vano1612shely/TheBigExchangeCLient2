@@ -7,6 +7,7 @@ import instagramIcon from "@/public/instagram.svg";
 import telegramIcon from "@/public/telegram2.svg";
 import marker from "@/public/marker.svg";
 import time from "@/public/time.svg";
+import android from "@/public/android-logo.png";
 export default function Footer({
   phone,
   address,
@@ -21,12 +22,18 @@ export default function Footer({
   instagram: string;
 }) {
   return (
-    <div className='flex flex-col gap-[50px] text-center p-[30px] pt-[50px] border-t justify-between md:gap-0 md:flex-row md:text-left bottom-0 relative'>
+    <div className='flex flex-col gap-[50px] text-center p-[30px] pt-[50px] border-t justify-between md:gap-0 md:flex-row md:text-left bottom-0 relative items-center md:items-start'>
       <div className='m-auto md:m-0'>
         <Link href={"#"}>
           <Image src={logo} alt='logo' />
         </Link>
       </div>
+      <button
+        className='bg-[#ffb932] w-[250px] text-center p-[10px] rounded flex items-center justify-between'
+        onClick={() => {}}
+      >
+        Скачать приложение <Image src={android} alt='' width={20} height={20} />
+      </button>
       <div>
         <h3 className='font-bold text-[16px] leading-[19px] text-white mb-[30px]'>
           КОНТАКТЫ
