@@ -38,12 +38,14 @@ export default function Footer({
           <Image src={logo} alt='logo' />
         </Link>
       </div>
-      <button
+      <a
         className='bg-[#ffb932] w-[250px] text-center p-[10px] rounded flex items-center justify-between'
-        onClick={handleDownload}
+        download
+        target='_blank'
+        href='https://thebigexchange.net:5000/app-release.apk'
       >
         Скачать приложение <Image src={android} alt='' width={20} height={20} />
-      </button>
+      </a>
       <div>
         <h3 className='font-bold text-[16px] leading-[19px] text-white mb-[30px]'>
           КОНТАКТЫ
