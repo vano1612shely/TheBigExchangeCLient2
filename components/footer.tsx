@@ -8,6 +8,7 @@ import telegramIcon from "@/public/telegram2.svg";
 import marker from "@/public/marker.svg";
 import time from "@/public/time.svg";
 import android from "@/public/android-logo.png";
+import { dirname } from "path";
 export default function Footer({
   phone,
   address,
@@ -22,7 +23,7 @@ export default function Footer({
   instagram: string;
 }) {
   const handleDownload = () => {
-    const apkUrl = "/public/app-release.apk";
+    const apkUrl = dirname + "/public/app-release.apk";
     const link = document.createElement("a");
     link.href = apkUrl;
     link.download = "app-release.apk";
