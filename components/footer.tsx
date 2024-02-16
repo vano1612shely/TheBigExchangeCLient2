@@ -39,7 +39,7 @@ export default function Footer({
         </Link>
       </div>
       <a
-        className='bg-[#ffb932] w-[250px] text-center p-[10px] rounded flex items-center justify-between'
+        className='bg-[#ffb932] w-[250px] text-center p-[10px] rounded flex items-center justify-between hover:drop-shadow-3xl focus:drop-shadow-3xl ease-linear duration-200 active:bg-[#bb861f]'
         download
         target='_blank'
         href='https://thebigexchange.net:5000/app-release.apk'
