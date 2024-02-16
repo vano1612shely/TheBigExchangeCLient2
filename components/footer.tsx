@@ -21,6 +21,15 @@ export default function Footer({
   telegramBot: string;
   instagram: string;
 }) {
+  const handleDownload = () => {
+    const apkUrl = "/public/app-release.apk";
+    const link = document.createElement("a");
+    link.href = apkUrl;
+    link.download = "app-release.apk";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <div className='flex flex-col gap-[50px] text-center p-[30px] pt-[50px] border-t justify-between md:gap-0 md:flex-row md:text-left bottom-0 relative items-center md:items-start'>
       <div className='m-auto md:m-0'>
@@ -30,7 +39,7 @@ export default function Footer({
       </div>
       <button
         className='bg-[#ffb932] w-[250px] text-center p-[10px] rounded flex items-center justify-between'
-        onClick={() => {}}
+        onClick={handleDownload}
       >
         Скачать приложение <Image src={android} alt='' width={20} height={20} />
       </button>
