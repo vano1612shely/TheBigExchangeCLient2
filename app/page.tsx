@@ -12,13 +12,8 @@ import { IDataResponse } from "@/services/info/info-service.interface";
 import Loader from "@/components/loader";
 
 export default function Home() {
-  function f(
-    w: Window & typeof globalThis,
-    d: Document,
-    s: string,
-    l: string,
-    i: string,
-  ) {
+  //@ts-ignore
+  function f(w, d, s, l, i) {
     w[l] = w[l] || [];
     w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
     var f = d.getElementsByTagName(s)[0],
@@ -60,7 +55,6 @@ export default function Home() {
         width='0'
         style={{ display: "none", visibility: "hidden" }}
       ></iframe>
-      {/* {data ? ( */}
       <>
         <Container>
           <Header
