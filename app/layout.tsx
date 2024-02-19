@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Raleway } from "next/font/google";
 import "./globals.css";
+import { useEffect } from "react";
 const raleway = Raleway({
   subsets: ["latin"],
   variable: "--font-raleway",
@@ -33,6 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ru'>
+      <head></head>
       <body
         className={`${xolonium.variable} ${raleway.variable}`}
         style={{ fontFamily: "Raleway,sans-serif" }}
