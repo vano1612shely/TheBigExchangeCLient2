@@ -151,7 +151,9 @@ export default function Exchange({
         setFormData({
           ...formData,
           type: type,
+          // @ts-ignore
           giveCurrency: fiat.find(g => g.value.toLowerCase() == "usd")?fiat.find(g => g.value.toLowerCase() == "usd"): fiat[0],
+          // @ts-ignore
           getCurrency: fiat.find(g => g.value.toLowerCase() == "usd")?fiat.find(g => g.value.toLowerCase() == "usd"): fiat[0],
         });
         setUpdateExchange(true);
@@ -167,7 +169,9 @@ export default function Exchange({
         setFormData({
           ...formData,
           type: type,
+          // @ts-ignore
           giveCurrency: give.find(g => g.value.toLowerCase() == "usdt" || g.value.toLowerCase() == "usd") ? give.find(g => g.value.toLowerCase() == "usdt" || g.value.toLowerCase() == "usd") : give[0],
+          // @ts-ignore
           getCurrency: get.find(g => g.value.toLowerCase() == "usdt" || g.value.toLowerCase() == "usd") ? get.find(g => g.value.toLowerCase() == "usdt" || g.value.toLowerCase() == "usd") : get[0],
         });
         setUpdateExchange(true);
