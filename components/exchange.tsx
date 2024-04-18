@@ -131,7 +131,9 @@ export default function Exchange({
         );
         setBanks(banksList);
       }
-      setFormData({ ...formData, giveCurrency: give[0], getCurrency: get[0] });
+      const usdt = give.find(g => g.value.toLowerCase() == "usdt")
+      const usd = get.find(g => g.value.toLowerCase() == "usd")
+      setFormData({ ...formData, giveCurrency: usdt ? usdt: give[0], getCurrency: usd? usd: get[0] });
       setUpdateExchange(true);
       setIsLoading(false);
     };
@@ -140,6 +142,22 @@ export default function Exchange({
   useEffect(() => {
     if (type !== "offline") {
       setShowCityList(false);
+      const getData = async () => {
+        const give = await currencyService.getCrypto();
+        setGiveCurrency(give);
+        const get = await currencyService.getFiat();
+        setGetCurrency(get);
+        const usdt = give.find(g => g.value.toLowerCase() == "usdt")
+        const usd = get.find(g => g.value.toLowerCase() == "usd")
+        setFormData({
+          ...formData,
+          type: type,
+          giveCurrency: usdt ? usdt: give[0],
+          getCurrency: usd ? usd: get[0],
+        });
+        setUpdateExchange(true);
+      };
+      getData();
     } else {
       setShowCityList(true);
     }
@@ -148,13 +166,12 @@ export default function Exchange({
         const fiat = await currencyService.getFiat();
         setGetCurrency(fiat);
         setGiveCurrency(fiat);
+        const usd = fiat.find(g => g.value.toLowerCase() == "usd")
         setFormData({
           ...formData,
           type: type,
-          // @ts-ignore
-          giveCurrency: fiat.find(g => g.value.toLowerCase() == "usd")?fiat.find(g => g.value.toLowerCase() == "usd"): fiat[0],
-          // @ts-ignore
-          getCurrency: fiat.find(g => g.value.toLowerCase() == "usd")?fiat.find(g => g.value.toLowerCase() == "usd"): fiat[0],
+          giveCurrency: usd ? usd: fiat[0],
+          getCurrency:  usd ? usd: fiat[0],
         });
         setUpdateExchange(true);
         setShowCityForm(true);
@@ -166,13 +183,13 @@ export default function Exchange({
         setGiveCurrency(give);
         const get = await currencyService.getFiat();
         setGetCurrency(get);
+        const usdt = give.find(g => g.value.toLowerCase() == "usdt")
+        const usd = get.find(g => g.value.toLowerCase() == "usd")
         setFormData({
           ...formData,
           type: type,
-          // @ts-ignore
-          giveCurrency: give.find(g => g.value.toLowerCase() == "usdt" || g.value.toLowerCase() == "usd") ? give.find(g => g.value.toLowerCase() == "usdt" || g.value.toLowerCase() == "usd") : give[0],
-          // @ts-ignore
-          getCurrency: get.find(g => g.value.toLowerCase() == "usdt" || g.value.toLowerCase() == "usd") ? get.find(g => g.value.toLowerCase() == "usdt" || g.value.toLowerCase() == "usd") : get[0],
+          giveCurrency: usdt ? usdt: give[0],
+          getCurrency: usd ? usd: get[0],
         });
         setUpdateExchange(true);
       };
