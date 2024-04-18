@@ -9,16 +9,16 @@ export default function SeoBlock() {
         </span>
       </h2>
       <div className='flex flex-col gap-[50px] md:flex-row'>
-        <div className='order-2 basis-1 h-[475px] rounded-[10px] md:basis-6/12'>
-          <video
-            autoPlay
-            muted
-            loop
-            className='object-cover rounded-xl w-full h-full'
-            src={"/video.MP4"}
-            suppressHydrationWarning
-          />
-        </div>
+        {/*<div className='order-2 basis-1 h-[475px] rounded-[10px] md:basis-6/12'>*/}
+        {/*  <video*/}
+        {/*    autoPlay*/}
+        {/*    muted*/}
+        {/*    loop*/}
+        {/*    className='object-cover rounded-xl w-full h-full'*/}
+        {/*    src={"/video.MP4"}*/}
+        {/*    suppressHydrationWarning*/}
+        {/*  />*/}
+        {/*</div>*/}
         <div className='basis-1 text-center md:basis-6/12 md:text-left'>
           <h3 className='text-[#ffb932] font-bold text-[24px] leading-[28px] mb-[10px]'>
             TheBigExchange: Ваши Финансовые Возможности

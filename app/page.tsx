@@ -67,33 +67,33 @@ export default function Home() {
           <div className='flex flex-row h-[50px]'>
             <button
               onClick={() => setExchangeType("offline")}
-              className={`font-bold text-white relative z-20 h-full flex items-center ${
+              className={`text-[12px] font-bold text-white relative z-20 h-full flex items-center ${
                 exchangeType === "offline"
                   ? "bg-[#2f2f2f] border-[#ffb932]"
                   : "bg-[#1a1c1e] border-[#1a1c1e]"
               } border px-[30px] rounded-tl-[10px] rounded-tr-[10px] ease-linear duration-200 hover:border-[#ffb932] hover:bg-[#2f2f2f]`}
             >
-              Офлайн
+              Отделение
             </button>
             <button
               onClick={() => setExchangeType("online")}
-              className={`font-bold text-white relative z-20 h-full flex items-center ${
+              className={`text-[12px] font-bold text-white relative z-20 h-full flex items-center ${
                 exchangeType === "online"
                   ? "bg-[#2f2f2f] border-[#ffb932]"
                   : "bg-[#1a1c1e] border-[#1a1c1e]"
               } border px-[30px] rounded-tl-[10px] rounded-tr-[10px] ease-linear duration-200 hover:border-[#ffb932] hover:bg-[#2f2f2f]`}
             >
-              Онлайн
+              Карта/счет банка
             </button>
             <button
               onClick={() => setExchangeType("transaction")}
-              className={`font-bold text-white relative z-20 h-full flex items-center ${
+              className={`text-[12px] font-bold text-white relative z-20 h-full flex items-center ${
                 exchangeType === "transaction"
                   ? "bg-[#2f2f2f] border-[#ffb932]"
                   : "bg-[#1a1c1e] border-[#1a1c1e]"
               } border px-[10px] rounded-tl-[10px] rounded-tr-[10px] ease-linear duration-200 hover:border-[#ffb932] hover:bg-[#2f2f2f]`}
             >
-              Перевод средств
+              Передача наличных
             </button>
           </div>
           <Exchange type={exchangeType} />

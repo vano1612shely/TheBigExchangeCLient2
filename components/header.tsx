@@ -20,10 +20,10 @@ export default function Header({
         <Image
           src={logo}
           alt='logo'
-          className='w-[180px] align-middle sm:mb-[50px] lg:mb-0'
+          className='w-[180px] align-middle md:mb-[50px] sm:mb-[20px] lg:mb-0'
         />
       </Link>
-      <div className='flex flex-col items-center justify-end gap-[50px] md:flex-row '>
+      <div className='flex flex-col items-center justify-end md:gap-[50px] md:flex-row sm:gap-[10px]'>
         <Link
           href='/blog'
           className='flex flex-row rounded-[20px] text-[16px] text-[#fff] px-[20px] py-[8px] items-center font-bold hover:drop-shadow-3xl focus:drop-shadow-3xl ease-linear duration-200'

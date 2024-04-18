@@ -151,8 +151,8 @@ export default function Exchange({
         setFormData({
           ...formData,
           type: type,
-          giveCurrency: fiat[0],
-          getCurrency: fiat[0],
+          giveCurrency: fiat.find(g => g.value.toLowerCase() == "usd")?fiat.find(g => g.value.toLowerCase() == "usd"): fiat[0],
+          getCurrency: fiat.find(g => g.value.toLowerCase() == "usd")?fiat.find(g => g.value.toLowerCase() == "usd"): fiat[0],
         });
         setUpdateExchange(true);
         setShowCityForm(true);
@@ -167,8 +167,8 @@ export default function Exchange({
         setFormData({
           ...formData,
           type: type,
-          giveCurrency: give[0],
-          getCurrency: get[0],
+          giveCurrency: give.find(g => g.value.toLowerCase() == "usdt" || g.value.toLowerCase() == "usd") ? give.find(g => g.value.toLowerCase() == "usdt" || g.value.toLowerCase() == "usd") : give[0],
+          getCurrency: get.find(g => g.value.toLowerCase() == "usdt" || g.value.toLowerCase() == "usd") ? get.find(g => g.value.toLowerCase() == "usdt" || g.value.toLowerCase() == "usd") : get[0],
         });
         setUpdateExchange(true);
       };
@@ -299,14 +299,21 @@ export default function Exchange({
                       borderRadius: "20px",
                       height: "40px",
                       background: "#1a1c1e",
+                      color: "#fff",
                     }),
                     option: (baseStyles, state) => ({
                       ...baseStyles,
                       background: "#1a1c1e",
+                      color: "#fff",
                     }),
                     menuList: (baseStyles, state) => ({
                       ...baseStyles,
                       background: "#1a1c1e",
+                      color: "#fff",
+                    }),
+                    singleValue: (baseStyles, state) => ({
+                      ...baseStyles,
+                      color: "#fff",
                     }),
                   }}
                   value={selectedCity}
@@ -407,14 +414,21 @@ export default function Exchange({
                         borderRadius: "20px",
                         height: "40px",
                         background: "#1a1c1e",
+                        color: "#fff"
                       }),
                       option: (baseStyles, state) => ({
                         ...baseStyles,
                         background: "#1a1c1e",
+                        color: "#fff"
                       }),
                       menuList: (baseStyles, state) => ({
                         ...baseStyles,
                         background: "#1a1c1e",
+                        color: "#fff"
+                      }),
+                      singleValue: (baseStyles, state) => ({
+                        ...baseStyles,
+                        color: "#fff",
                       }),
                     }}
                     value={transactionFrom}
@@ -443,14 +457,21 @@ export default function Exchange({
                         borderRadius: "20px",
                         height: "40px",
                         background: "#1a1c1e",
+                        color: "#fff",
                       }),
                       option: (baseStyles, state) => ({
                         ...baseStyles,
                         background: "#1a1c1e",
+                        color: "#fff",
                       }),
                       menuList: (baseStyles, state) => ({
                         ...baseStyles,
                         background: "#1a1c1e",
+                        color: "#fff",
+                      }),
+                      singleValue: (baseStyles, state) => ({
+                        ...baseStyles,
+                        color: "#fff",
                       }),
                     }}
                     value={transactionTo}
