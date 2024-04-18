@@ -67,7 +67,7 @@ export default function Home() {
           <div className='flex flex-row h-[50px]'>
             <button
               onClick={() => setExchangeType("offline")}
-              className={`text-[12px] font-bold text-white relative z-20 h-full flex items-center ${
+              className={`text-[12px] md:text-[14px]  font-bold text-white relative z-20 h-full flex items-center ${
                 exchangeType === "offline"
                   ? "bg-[#2f2f2f] border-[#ffb932]"
                   : "bg-[#1a1c1e] border-[#1a1c1e]"
@@ -77,7 +77,7 @@ export default function Home() {
             </button>
             <button
               onClick={() => setExchangeType("online")}
-              className={`text-[12px] font-bold text-white relative z-20 h-full flex items-center ${
+              className={`text-[12px] md:text-[14px]  font-bold text-white relative z-20 h-full flex items-center ${
                 exchangeType === "online"
                   ? "bg-[#2f2f2f] border-[#ffb932]"
                   : "bg-[#1a1c1e] border-[#1a1c1e]"
@@ -87,7 +87,7 @@ export default function Home() {
             </button>
             <button
               onClick={() => setExchangeType("transaction")}
-              className={`text-[12px] font-bold text-white relative z-20 h-full flex items-center ${
+              className={`text-[12px] md:text-[14px] font-bold text-white relative z-20 h-full flex items-center ${
                 exchangeType === "transaction"
                   ? "bg-[#2f2f2f] border-[#ffb932]"
                   : "bg-[#1a1c1e] border-[#1a1c1e]"
