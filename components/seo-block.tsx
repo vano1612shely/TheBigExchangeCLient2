@@ -1,14 +1,14 @@
+import { useTranslations } from "next-intl";
+
 export default function SeoBlock() {
+  const t = useTranslations("Index");
   return (
-    <div className='mb-[100px]'>
-      <h2 className='font-bold text-[30px] leading-[42px] text-white text-center mb-[50px] lg:text-[36px]'>
+    <div className="mb-[100px]">
+      <h2 className="font-bold text-[30px] leading-[42px] text-white text-center mb-[50px] lg:text-[36px]">
         TheBigExchange
-        <span className='text-[#ffb932]'>
-          {" "}
-          - Ваш глобальный партнер в мире криптовалют и международных переводов
-        </span>
+        <span className="text-[#ffb932]"> - {t("seoBlock.title")}</span>
       </h2>
-      <div className='flex flex-col gap-[50px] md:flex-row'>
+      <div className="flex flex-col gap-[50px] md:flex-row">
         {/*<div className='order-2 basis-1 h-[475px] rounded-[10px] md:basis-6/12'>*/}
         {/*  <video*/}
         {/*    autoPlay*/}
@@ -19,37 +19,30 @@ export default function SeoBlock() {
         {/*    suppressHydrationWarning*/}
         {/*  />*/}
         {/*</div>*/}
-        <div className='basis-1 text-center md:basis-6/12 md:text-left'>
-          <h3 className='text-[#ffb932] font-bold text-[24px] leading-[28px] mb-[10px]'>
-            TheBigExchange: Ваши Финансовые Возможности
+        <div className="basis-1 text-center md:basis-6/12 md:text-left">
+          <h3 className="text-[#ffb932] font-bold text-[24px] leading-[28px] mb-[10px]">
+            TheBigExchange: {t("seoBlock.subtitle")}
           </h3>
-          <p className='text-white text-[16px] leading-[19px] mb-[19px]'>
-            Обмен Криптовалют: Быстро и выгодно обменивайте криптовалюты с
-            нашими актуальными курсами.
+          <p className="text-white text-[16px] leading-[19px] mb-[19px]">
+            {t("seoBlock.p1")}
           </p>
-          <p className='text-white text-[16px] leading-[19px] mb-[19px]'>
-            Международные Переводы: Отправьте деньги в любую точку мира
-            моментально и безопасно.
+          <p className="text-white text-[16px] leading-[19px] mb-[19px]">
+            {t("seoBlock.p2")}
           </p>
-          <p className='text-white text-[16px] leading-[19px] mb-[19px]'>
-            Инвестиции в Золото: Зарабатывайте, оставляя доллары на депозите и
-            инвестируя в золото.
+          <p className="text-white text-[16px] leading-[19px] mb-[19px]">
+            {t("seoBlock.p3")}
           </p>
-          <p className='text-white text-[16px] leading-[19px] mb-[19px]'>
-            Управление Финансами: Доверьте нам финансовые манипуляции и получите
-            консультацию.
+          <p className="text-white text-[16px] leading-[19px] mb-[19px]">
+            {t("seoBlock.p4")}
           </p>
-          <p className='text-white text-[16px] leading-[19px] mb-[19px]'>
-            Наши Преимущества: Надежность: Мы - надежная и лицензированная
-            финансовая компания. Глобальное Присутствие: Обслуживаем клиентов по
-            всему миру.
+          <p className="text-white text-[16px] leading-[19px] mb-[19px]">
+            {t("seoBlock.p5")}
           </p>
-          <p className='text-white text-[16px] leading-[19px] mb-[19px]'>
-            Простота Использования: Легко совершайте операции через нашу удобную
-            платформу.
+          <p className="text-white text-[16px] leading-[19px] mb-[19px]">
+            {t("seoBlock.p6")}
           </p>
-          <p className='text-white text-[16px] leading-[19px] mb-[19px]'>
-            Отличный Клиентский Сервис: Наша команда всегда готова помочь.
+          <p className="text-white text-[16px] leading-[19px] mb-[19px]">
+            {t("seoBlock.p7")}
           </p>
         </div>
       </div>

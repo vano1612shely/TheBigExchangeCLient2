@@ -18,6 +18,7 @@ import ReactSelect from "react-select";
 import chainService from "@/services/chains/chain.service";
 import { ICityByCountry } from "@/services/city/city-service.interface";
 import cityService from "@/services/city/city.service";
+import { useTranslations } from "next-intl";
 interface SelectOption {
   label: string;
   value: string;
@@ -49,6 +50,7 @@ export default function Exchange({
 }: {
   type: "transaction" | "online" | "offline";
 }) {
+  const t = useTranslations("Index");
   const [showCityList, setShowCityList] = useState<boolean>(true);
   const [transactionFrom, setTransactionFrom] = useState<SelectOption>({
     label: "",
@@ -65,7 +67,7 @@ export default function Exchange({
   const [transactionTypeValue, setTransactionTypeValue] = useState<{
     value: string;
     label: string;
-  }>({ label: "Наличние", value: "offline" });
+  }>({ label: t("cash"), value: "offline" });
   const [modalData, setModalData] = useState<IModal>({
     title: "",
     buttonText: "",
@@ -111,14 +113,14 @@ export default function Exchange({
             banksList.push({
               value: bank.name,
               label: (
-                <div className='text-white flex flex-row items-center'>
+                <div className="text-white flex flex-row items-center">
                   {bank.icon_link ? (
                     <Image
                       src={URL + "/" + bank.icon_link}
                       alt={bank.name}
                       width={30}
                       height={30}
-                      className='mr-[5px]'
+                      className="mr-[5px]"
                     />
                   ) : (
                     ""
@@ -131,9 +133,13 @@ export default function Exchange({
         );
         setBanks(banksList);
       }
-      const usdt = give.find(g => g.value.toLowerCase() == "usdt")
-      const usd = get.find(g => g.value.toLowerCase() == "usd")
-      setFormData({ ...formData, giveCurrency: usdt ? usdt: give[0], getCurrency: usd? usd: get[0] });
+      const usdt = give.find((g) => g.value.toLowerCase() == "usdt");
+      const usd = get.find((g) => g.value.toLowerCase() == "usd");
+      setFormData({
+        ...formData,
+        giveCurrency: usdt ? usdt : give[0],
+        getCurrency: usd ? usd : get[0],
+      });
       setUpdateExchange(true);
       setIsLoading(false);
     };
@@ -147,13 +153,13 @@ export default function Exchange({
         setGiveCurrency(give);
         const get = await currencyService.getFiat();
         setGetCurrency(get);
-        const usdt = give.find(g => g.value.toLowerCase() == "usdt")
-        const usd = get.find(g => g.value.toLowerCase() == "usd")
+        const usdt = give.find((g) => g.value.toLowerCase() == "usdt");
+        const usd = get.find((g) => g.value.toLowerCase() == "usd");
         setFormData({
           ...formData,
           type: type,
-          giveCurrency: usdt ? usdt: give[0],
-          getCurrency: usd ? usd: get[0],
+          giveCurrency: usdt ? usdt : give[0],
+          getCurrency: usd ? usd : get[0],
         });
         setUpdateExchange(true);
       };
@@ -166,12 +172,12 @@ export default function Exchange({
         const fiat = await currencyService.getFiat();
         setGetCurrency(fiat);
         setGiveCurrency(fiat);
-        const usd = fiat.find(g => g.value.toLowerCase() == "usd")
+        const usd = fiat.find((g) => g.value.toLowerCase() == "usd");
         setFormData({
           ...formData,
           type: type,
-          giveCurrency: usd ? usd: fiat[0],
-          getCurrency:  usd ? usd: fiat[0],
+          giveCurrency: usd ? usd : fiat[0],
+          getCurrency: usd ? usd : fiat[0],
         });
         setUpdateExchange(true);
         setShowCityForm(true);
@@ -183,13 +189,13 @@ export default function Exchange({
         setGiveCurrency(give);
         const get = await currencyService.getFiat();
         setGetCurrency(get);
-        const usdt = give.find(g => g.value.toLowerCase() == "usdt")
-        const usd = get.find(g => g.value.toLowerCase() == "usd")
+        const usdt = give.find((g) => g.value.toLowerCase() == "usdt");
+        const usd = get.find((g) => g.value.toLowerCase() == "usd");
         setFormData({
           ...formData,
           type: type,
-          giveCurrency: usdt ? usdt: give[0],
-          getCurrency: usd ? usd: get[0],
+          giveCurrency: usdt ? usdt : give[0],
+          getCurrency: usd ? usd : get[0],
         });
         setUpdateExchange(true);
       };
@@ -210,7 +216,7 @@ export default function Exchange({
               chainsList.push({
                 value: chain.name,
                 label: (
-                  <div className='text-white flex flex-row items-center'>
+                  <div className="text-white flex flex-row items-center">
                     {chain.name}
                   </div>
                 ),
@@ -256,15 +262,15 @@ export default function Exchange({
   return (
     <>
       <form
-        action=''
+        action=""
         onSubmit={async (e) => {
           e.preventDefault();
           if (formData.type === "offline" && formData.city == "") {
             setModalData({
               ...modalData,
-              title: "Ошибка",
-              message: "Выберете город!",
-              buttonText: "Закрыть",
+              title: t("error"),
+              message: t("selectCity!"),
+              buttonText: t("close"),
             });
             setShowModal(true);
             return;
@@ -276,9 +282,9 @@ export default function Exchange({
             if (!formData.transactionTo || !formData.transactionFrom) {
               setModalData({
                 ...modalData,
-                title: "Ошибка",
-                message: "Выберете города!",
-                buttonText: "Закрыть",
+                title: t("error"),
+                message: t("selectCities!"),
+                buttonText: t("close"),
               });
               setShowModal(true);
               return;
@@ -288,32 +294,32 @@ export default function Exchange({
           if (res === true) {
             setModalData({
               ...modalData,
-              title: "Успешно",
-              message: "Заявка отправлена",
-              buttonText: "Закрыть",
+              title: t("successfully"),
+              message: t("applicationSent"),
+              buttonText: t("close"),
             });
           } else {
             setModalData({
               ...modalData,
-              title: "Ошибка",
-              message: "Заявка не была обработана, попробуйте позже",
-              buttonText: "Закрыть",
+              title: t("successfully"),
+              message: t("applicationNotSent"),
+              buttonText: t("close"),
             });
           }
           setShowModal(true);
         }}
       >
-        <div className='w-full drop-shadow-3xl-light bg-[#1a1c1e] rounded-[10px] p-[20px] flex flex-col gap-[10px] lg:flex-row rounded-t-none'>
+        <div className="w-full drop-shadow-3xl-light bg-[#1a1c1e] rounded-[10px] p-[20px] flex flex-col gap-[10px] lg:flex-row rounded-t-none">
           {showCityList ? (
-            <div className='lg:h-[625px] mb-[30px] lg:mb-0'>
-              <div className='lg:hidden'>
-                <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
-                  Выберите город
+            <div className="lg:h-[625px] mb-[30px] lg:mb-0">
+              <div className="lg:hidden">
+                <h3 className="text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway">
+                  {t("selectCity")}
                 </h3>
                 <SelectReact
                   isSearchable={false}
                   options={transformToOptions(townList)}
-                  className='text-white'
+                  className="text-white"
                   styles={{
                     control: (baseStyles, state) => ({
                       ...baseStyles,
@@ -349,12 +355,12 @@ export default function Exchange({
                   }}
                 />
               </div>
-              <div className='hidden lg:block h-full overflow-y-auto'>
+              <div className="hidden lg:block h-full overflow-y-auto">
                 <CityList
                   townList={townList}
                   currentCity={formData.city ? formData.city : ""}
                   setCity={(city) => setFormData({ ...formData, city: city })}
-                  title='Выберите город'
+                  title={t("selectCity")}
                   height={625}
                 />
               </div>
@@ -362,17 +368,17 @@ export default function Exchange({
           ) : (
             ""
           )}
-          <div className='flex-1'>
+          <div className="flex-1">
             {type === "transaction" ? (
-              <div className='flex flex-col justify-between mb-[30px]'>
-                <h4 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
-                  Выберите тип перевода
+              <div className="flex flex-col justify-between mb-[30px]">
+                <h4 className="text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway">
+                  {t("selectTranslationType")}
                 </h4>
                 <ReactSelect
                   isSearchable={false}
                   options={[
-                    { label: "Наличние", value: "offline" },
-                    { label: "Онлайн перевод", value: "online" },
+                    { label: t("cash"), value: "offline" },
+                    { label: t("onlineTransfer"), value: "online" },
                   ]}
                   value={transactionTypeValue}
                   styles={{
@@ -420,32 +426,32 @@ export default function Exchange({
               ""
             )}
             {showCityForm ? (
-              <div className='flex flex-col w-full justify-around gap-[20px] md:flex-row mb-[30px] max-h-[620px]'>
-                <div className='w-full'>
-                  <h3 className='text-[24px] text-white leading-[28px] font-bold pl-[32px] mb-[30px] font-raleway'>
-                    Откуда:
+              <div className="flex flex-col w-full justify-around gap-[20px] md:flex-row mb-[30px] max-h-[620px]">
+                <div className="w-full">
+                  <h3 className="text-[24px] text-white leading-[28px] font-bold pl-[32px] mb-[30px] font-raleway">
+                    {t("from")}
                   </h3>
                   <SelectReact
                     isSearchable={false}
                     options={transformToOptions(townList)}
-                    className='text-white'
+                    className="text-white"
                     styles={{
                       control: (baseStyles, state) => ({
                         ...baseStyles,
                         borderRadius: "20px",
                         height: "40px",
                         background: "#1a1c1e",
-                        color: "#fff"
+                        color: "#fff",
                       }),
                       option: (baseStyles, state) => ({
                         ...baseStyles,
                         background: "#1a1c1e",
-                        color: "#fff"
+                        color: "#fff",
                       }),
                       menuList: (baseStyles, state) => ({
                         ...baseStyles,
                         background: "#1a1c1e",
-                        color: "#fff"
+                        color: "#fff",
                       }),
                       singleValue: (baseStyles, state) => ({
                         ...baseStyles,
@@ -464,14 +470,14 @@ export default function Exchange({
                     }}
                   />
                 </div>
-                <div className='w-full'>
-                  <h3 className='text-[24px] text-white leading-[28px] font-bold pl-[32px] mb-[30px] font-raleway'>
-                    Куда:
+                <div className="w-full">
+                  <h3 className="text-[24px] text-white leading-[28px] font-bold pl-[32px] mb-[30px] font-raleway">
+                    {t("to")}
                   </h3>
                   <SelectReact
                     isSearchable={false}
                     options={transformToOptions(townList)}
-                    className='text-white'
+                    className="text-white"
                     styles={{
                       control: (baseStyles, state) => ({
                         ...baseStyles,
@@ -511,22 +517,22 @@ export default function Exchange({
             ) : (
               ""
             )}
-            <div className='flex flex-col justify-between'>
-              <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
-                Персональные данные
+            <div className="flex flex-col justify-between">
+              <h3 className="text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway">
+                {t("personalData")}
               </h3>
             </div>
-            <div className='flex flex-row justify-between mb-[10px]'>
-              <p className='font-bold text-[16px]'>Выберите валюту: </p>
-              <p className='font-bold ml-auto'>
+            <div className="flex flex-row justify-between mb-[10px]">
+              <p className="font-bold text-[16px]">{t("selectCurrency")}</p>
+              <p className="font-bold ml-auto">
                 1 {formData.giveCurrency?.value.toUpperCase()} ={" "}
-                <span className='text-[#ffb932]'>
+                <span className="text-[#ffb932]">
                   {formData.exchange}{" "}
                   {formData.getCurrency?.value.toUpperCase()}
                 </span>
               </p>
             </div>
-            <div className='flex flex-col gap-[5px] mb-[20px] items-center lg:flex-row lg:items-star'>
+            <div className="flex flex-col gap-[5px] mb-[20px] items-center lg:flex-row lg:items-star">
               <Select
                 options={giveCurrency}
                 selected={formData.giveCurrency}
@@ -541,8 +547,8 @@ export default function Exchange({
                 }}
               />
               <button
-                type='button'
-                className='w-[50px] h-[50px]'
+                type="button"
+                className="w-[50px] h-[50px]"
                 onClick={() => {
                   // При зміні масивів giveCurrency та getCurrency
                   let updatedGiveCurrency = [...giveCurrency]; // Клонуємо масиви, щоб не змінювати їх напряму
@@ -561,7 +567,7 @@ export default function Exchange({
               </button>
               <Select
                 options={getCurrency}
-                placeholder='123'
+                placeholder="123"
                 selected={formData.getCurrency}
                 onChange={(value) => {
                   setFormData({
@@ -574,13 +580,13 @@ export default function Exchange({
                 }}
               />
             </div>
-            <div className='flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]'>
-              <div className='w-full'>
-                <h4 className='pl-[20px] mb-[10px] font-bold'>Отдаю:</h4>
+            <div className="flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]">
+              <div className="w-full">
+                <h4 className="pl-[20px] mb-[10px] font-bold">{t("give")}</h4>
                 <input
                   value={formData.giveSum ? formData.giveSum : ""}
-                  type='number'
-                  className='w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light'
+                  type="number"
+                  className="w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light"
                   onChange={(e) => {
                     setFormData({
                       ...formData,
@@ -592,12 +598,12 @@ export default function Exchange({
                   required
                 />
               </div>
-              <div className='w-full'>
-                <h4 className='pl-[20px] mb-[10px] font-bold'>Получаю:</h4>
+              <div className="w-full">
+                <h4 className="pl-[20px] mb-[10px] font-bold">{t("get")}</h4>
                 <input
                   value={formData.getSum ? formData.getSum : ""}
-                  type='number'
-                  className='w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light'
+                  type="number"
+                  className="w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light"
                   onChange={(e) => {
                     setFormData({
                       ...formData,
@@ -610,65 +616,69 @@ export default function Exchange({
                 />
               </div>
             </div>
-            <div className='flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]'>
-              <div className='w-full'>
-                <h4 className='pl-[20px] mb-[10px] font-bold'>Имя:*</h4>
+            <div className="flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]">
+              <div className="w-full">
+                <h4 className="pl-[20px] mb-[10px] font-bold">{t("name")}:*</h4>
                 <input
                   required
                   value={formData.name}
                   onChange={(e) => {
                     setFormData({ ...formData, name: e.target.value });
                   }}
-                  type='text'
-                  className='w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light'
+                  type="text"
+                  className="w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light"
                 />
               </div>
-              <div className='w-full'>
-                <h4 className='pl-[20px] mb-[10px] font-bold'>E-mail:</h4>
+              <div className="w-full">
+                <h4 className="pl-[20px] mb-[10px] font-bold">E-mail:</h4>
                 <input
                   value={formData.email}
                   onChange={(e) => {
                     setFormData({ ...formData, email: e.target.value });
                   }}
-                  type='email'
-                  className='w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light'
+                  type="email"
+                  className="w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light"
                 />
               </div>
             </div>
-            <div className='flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]'>
-              <div className='w-full'>
-                <h4 className='pl-[20px] mb-[10px] font-bold'>Телефон:*</h4>
+            <div className="flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]">
+              <div className="w-full">
+                <h4 className="pl-[20px] mb-[10px] font-bold">
+                  {t("phone")}:*
+                </h4>
                 <input
-                  type='text'
+                  type="text"
                   value={formData.phone}
                   onChange={(e) => {
                     setFormData({ ...formData, phone: e.target.value });
                   }}
                   required
-                  className='w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light'
+                  className="w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light"
                 />
               </div>
-              <div className='w-full'>
-                <h4 className='pl-[20px] mb-[10px] font-bold'>Telegram:</h4>
+              <div className="w-full">
+                <h4 className="pl-[20px] mb-[10px] font-bold">Telegram:</h4>
                 <input
                   value={formData.telegram}
                   onChange={(e) => {
                     setFormData({ ...formData, telegram: e.target.value });
                   }}
-                  type='text'
-                  className='w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light'
+                  type="text"
+                  className="w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light"
                 />
               </div>
             </div>
             {formData.type === "online" &&
             formData.giveCurrency?.type == "fiat" ? (
-              <div className='flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]'>
-                <div className='w-full'>
-                  <h4 className='pl-[20px] mb-[10px] font-bold'>Сеть:*</h4>
+              <div className="flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]">
+                <div className="w-full">
+                  <h4 className="pl-[20px] mb-[10px] font-bold">
+                    {t("network")}:*
+                  </h4>
                   <SelectReact
                     isSearchable={false}
                     options={chains}
-                    className='text-white'
+                    className="text-white"
                     styles={{
                       control: (baseStyles, state) => ({
                         ...baseStyles,
@@ -692,10 +702,12 @@ export default function Exchange({
                     }}
                   />
                 </div>
-                <div className='w-full'>
-                  <h4 className='pl-[20px] mb-[10px] font-bold'>Кошелек:*</h4>
+                <div className="w-full">
+                  <h4 className="pl-[20px] mb-[10px] font-bold">
+                    {t("wallet")}:*
+                  </h4>
                   <input
-                    type='text'
+                    type="text"
                     value={formData?.wallet}
                     onChange={(e) => {
                       setFormData({
@@ -704,7 +716,7 @@ export default function Exchange({
                       });
                     }}
                     required
-                    className='w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light'
+                    className="w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light"
                   />
                 </div>
               </div>
@@ -712,13 +724,15 @@ export default function Exchange({
                 formData.giveCurrency?.type == "crypto") ||
               (type === "transaction" &&
                 formData.transactionType === "online") ? (
-              <div className='flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]'>
-                <div className='w-full'>
-                  <h4 className='pl-[20px] mb-[10px] font-bold'>Банк:*</h4>
+              <div className="flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]">
+                <div className="w-full">
+                  <h4 className="pl-[20px] mb-[10px] font-bold">
+                    {t("bank")}:*
+                  </h4>
                   <SelectReact
                     isSearchable={false}
                     options={banks}
-                    className='text-white'
+                    className="text-white"
                     styles={{
                       control: (baseStyles, state) => ({
                         ...baseStyles,
@@ -742,28 +756,30 @@ export default function Exchange({
                     }}
                   />
                 </div>
-                <div className='w-full'>
-                  <h4 className='pl-[20px] mb-[10px] font-bold'>Счет:*</h4>
+                <div className="w-full">
+                  <h4 className="pl-[20px] mb-[10px] font-bold">
+                    {t("bill")}:*
+                  </h4>
                   <input
-                    type='text'
+                    type="text"
                     value={formData?.wallet}
                     onChange={(e) => {
                       setFormData({ ...formData, wallet: e.target.value });
                     }}
                     required
-                    className='w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light'
+                    className="w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light"
                   />
                 </div>
               </div>
             ) : (
               ""
             )}
-            <p className='text-center font-bold text-[16px] mb-[10px] lg:text-right'>
-              Точный курс узнавайте у менеджера!
+            <p className="text-center font-bold text-[16px] mb-[10px] lg:text-right">
+              {t("checkExactCourse")}
             </p>
-            <div className='flex flex-row justify-center'>
-              <button className='bg-[#ffb932] rounded-[20px] text-[16px] text-center text-[#1a1c1e] px-[20px] h-[40px] w-full md:w-[50%] items-center font-bold hover:drop-shadow-3xl focus:drop-shadow-3xl ease-linear duration-200 active:bg-[#bb861f]'>
-                Подать заявку
+            <div className="flex flex-row justify-center">
+              <button className="bg-[#ffb932] rounded-[20px] text-[16px] text-center text-[#1a1c1e] px-[20px] h-[40px] w-full md:w-[50%] items-center font-bold hover:drop-shadow-3xl focus:drop-shadow-3xl ease-linear duration-200 active:bg-[#bb861f]">
+                {t("submit")}
               </button>
             </div>
           </div>

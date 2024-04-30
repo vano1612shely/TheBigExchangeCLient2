@@ -9,7 +9,7 @@ const raleway = Raleway({
 const xolonium = localFont({
   src: [
     {
-      path: "../../public/fonts/Xolonium-Bold.woff2",
+      path: "../../../public/fonts/Xolonium-Bold.woff2",
       weight: "bold",
       style: "normal",
     },
@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='ru'>
+    <html lang="ru">
       <body
         className={`${xolonium.variable} ${raleway.variable}`}
         style={{ fontFamily: "Raleway,sans-serif" }}

@@ -5,6 +5,7 @@ import svgFile from "@/public/ic-map-pin.svg";
 import { useEffect, useState } from "react";
 import Select from "react-select";
 import addressService from "@/services/address/address.service";
+import { useTranslations } from "next-intl";
 type Option = {
   value: string;
   label: string;
@@ -20,6 +21,7 @@ export default function Department() {
   const [selectedAddress, setSelectedAddress] = useState<Option | undefined>(
     undefined,
   );
+  const t = useTranslations("Index");
 
   useEffect(() => {
     const getData = async () => {
@@ -112,18 +114,18 @@ export default function Department() {
     }
   }, [selectedAddress]);
   return (
-    <div className='mb-[100px]'>
-      <h2 className='font-bold text-white text-[36px] leading-[42px] text-center mb-[30px]'>
-        Ближайшее <span className='text-[#ffb932]'>отделение</span>
+    <div className="mb-[100px]">
+      <h2 className="font-bold text-white text-[36px] leading-[42px] text-center mb-[30px]">
+        {t("nearest")} <span className="text-[#ffb932]">{t("branch")}</span>
       </h2>
-      <div className='flex flex-col gap-[10px] items-center lg:flex-row xl:gap-[50px]'>
-        <div className='basis-1 rounded-[10px] scale-[50%] lg:basis-6/12 lg:scale-100'>
-          <Map className='' />
+      <div className="flex flex-col gap-[10px] items-center lg:flex-row xl:gap-[50px]">
+        <div className="basis-1 rounded-[10px] scale-[50%] lg:basis-6/12 lg:scale-100">
+          <Map className="" />
         </div>
-        <div className='basis-1 flex flex-col justify-around lg:basis-6/12'>
+        <div className="basis-1 flex flex-col justify-around lg:basis-6/12">
           <div>
-            <h2 className='mb-[20px] font-bold text-[16px]'>
-              Выберите ближайший пункт обмена валют:
+            <h2 className="mb-[20px] font-bold text-[16px]">
+              {t("selectNearestBranch")}
             </h2>
             <Select
               isSearchable={false}
@@ -152,7 +154,7 @@ export default function Department() {
                   color: "#fff",
                 }),
               }}
-              className='text-white mb-[20px]'
+              className="text-white mb-[20px]"
               onChange={(value) => {
                 if (value !== null) {
                   setSelectedAddress(value as Option);
@@ -161,16 +163,16 @@ export default function Department() {
             />
           </div>
           <div>
-            <h2 className='mb-[20px] font-bold text-[16px]'>График:</h2>{" "}
-            <p className='flex flex-row items-center mb-[20px]'>
+            <h2 className="mb-[20px] font-bold text-[16px]">{t("timeline")}</h2>{" "}
+            <p className="flex flex-row items-center mb-[20px]">
               <Image
                 src={time2}
-                alt=''
+                alt=""
                 width={18}
                 height={18}
-                className='mr-[18px]'
+                className="mr-[18px]"
               />
-              Пн-Пт 09:00 - 20:00, Сб 10:00 - 18:00, Вс - выходной
+              {t("timeline2")}
             </p>
           </div>
           <button
@@ -180,9 +182,9 @@ export default function Department() {
                 "_blank",
               );
             }}
-            className='bg-[#ffb932] rounded-[20px] text-[16px] text-center text-[#1a1c1e] px-[20px] h-[40px] w-[100%] xl:w-[50%] items-center font-bold hover:drop-shadow-3xl focus:drop-shadow-3xl ease-linear duration-200 active:bg-[#bb861f]'
+            className="bg-[#ffb932] rounded-[20px] text-[16px] text-center text-[#1a1c1e] px-[20px] h-[40px] w-[100%] xl:w-[50%] items-center font-bold hover:drop-shadow-3xl focus:drop-shadow-3xl ease-linear duration-200 active:bg-[#bb861f]"
           >
-            Проложить маршрут
+            {t("plotRoute")}
           </button>
         </div>
       </div>

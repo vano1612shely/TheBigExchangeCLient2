@@ -6,7 +6,7 @@ import Header from "@/components/header";
 import { IDataResponse } from "@/services/info/info-service.interface";
 import infoService from "@/services/info/info.service";
 import { useEffect, useState } from "react";
-export default function BlogPage() {
+export default function BlogPageComponent() {
   const [data, setData] = useState<IDataResponse | null>();
   useEffect(() => {
     const getData = async () => {
@@ -17,7 +17,7 @@ export default function BlogPage() {
   }, []);
   return (
     <Container>
-      <div className='flex flex-col h-full min-h-[100vh]'>
+      <div className="flex flex-col h-full min-h-[100vh]">
         <Header
           phone={data?.phone ? data.phone : ""}
           telegram={data?.telegram ? data.telegram : ""}

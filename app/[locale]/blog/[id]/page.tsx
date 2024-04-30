@@ -7,6 +7,8 @@ import { IDataResponse } from "@/services/info/info-service.interface";
 import axios from "axios";
 import { IPost } from "@/services/post/post-service.interface";
 import type { Metadata, ResolvingMetadata } from "next";
+import IntlContainer from "../../../../components/intlContainer";
+import React from "react";
 const fetchInfo = async (): Promise<IDataResponse> => {
   const res = await axios.get(URL + "/info/getAll");
   return res.data;
@@ -36,9 +38,9 @@ export default async function Page({ params }: { params: { id: string } }) {
   const post = await fetchPost(Number(params.id));
   await fetchView(Number(params.id));
   return (
-    <>
+    <IntlContainer>
       <Container>
-        <div className='flex flex-col h-full min-h-[100vh]'>
+        <div className="flex flex-col h-full min-h-[100vh]">
           <Header
             phone={data?.phone ? data.phone : ""}
             telegram={data?.telegram ? data.telegram : ""}
@@ -54,6 +56,6 @@ export default async function Page({ params }: { params: { id: string } }) {
           />
         </div>
       </Container>
-    </>
+    </IntlContainer>
   );
 }
