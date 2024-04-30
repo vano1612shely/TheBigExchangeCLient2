@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none !important;
+}
+body {
+  background: #1a1c1e;
+  color: #fff;
+  font-feature-settings: "pnum" on, "lnum" on;
+}
+
+::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      from(#4f4f4f),
+      to(#4f4f4f)
+    ),
+    #4f4f4f;
+  background: linear-gradient(0deg, #4f4f4f, #4f4f4f), #4f4f4f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
