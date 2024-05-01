@@ -21,22 +21,22 @@ export default function CityList({
         height ? "h-[" + height + "px]" : "h-full"
       }`}
     >
-      <h3 className='text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[32px] mb-[30px] font-raleway'>
+      <h3 className="text-[24px] text-white leading-[28px] font-bold m-w-[33.33%] pl-[20px] mb-[30px] font-raleway">
         {title}
       </h3>
-      <ul className='overflow-y-auto list-none font-normal pr-[10px] h-full'>
+      <ul className="overflow-y-auto list-none font-normal pr-[10px] h-full">
         {townList &&
           Object.entries(townList).map(([country, cities]) => {
             return (
               <div key={country}>
-                <h3 className='text-[18px] text-white leading-[28px] font-bold mb-[10px] font-raleway'>
+                <h3 className="text-[18px] text-white leading-[28px] font-bold mb-[10px] font-raleway">
                   {country}
                 </h3>
                 <ul>
                   {townList[country].map((town, index) => (
-                    <li key={index} className='mb-[5px]'>
+                    <li key={index} className="mb-[5px]">
                       <button
-                        type='button'
+                        type="button"
                         onClick={() => {
                           setCity(town.city_name);
                         }}
@@ -48,8 +48,8 @@ export default function CityList({
                       >
                         <Image
                           src={pin}
-                          alt='pin'
-                          className='mr-[5px] w-[15px] h-[15px]'
+                          alt="pin"
+                          className="mr-[5px] w-[15px] h-[15px]"
                         />
                         {town.city_name}
                       </button>
