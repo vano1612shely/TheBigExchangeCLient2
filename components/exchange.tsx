@@ -317,7 +317,7 @@ export default function Exchange({
                   {t("selectCity")}
                 </h3>
                 <SelectReact
-                  isSearchable={false}
+                  isSearchable={true}
                   options={transformToOptions(townList)}
                   className="text-white"
                   styles={{
