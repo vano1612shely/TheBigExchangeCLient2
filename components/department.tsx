@@ -76,33 +76,6 @@ export default function Department() {
           if (pathId === selectedAddress?.value) {
             (path as SVGPathElement).style.fill = "#762b2d";
             (path as SVGPathElement).style.opacity = "0.7";
-            // Отримання прямокутника, який обмежує шлях
-            const bbox = (path as SVGPathElement).getBBox();
-            const centerX = bbox.x + bbox.width / 2;
-            const centerY = bbox.y + bbox.height / 2;
-            const image = document.createElementNS(
-              "http://www.w3.org/2000/svg",
-              "image",
-            );
-            image.setAttributeNS(
-              "http://www.w3.org/1999/xlink",
-              "href",
-              "../ic-map-pin.svg",
-            );
-            image.classList.add("hover:fill-white");
-            // Встановлення координат та розмірів для <image>
-            image.setAttributeNS(null, "x", String(centerX - 15));
-            image.setAttributeNS(null, "y", String(centerY - 30));
-            image.setAttributeNS(null, "width", "30");
-            image.setAttributeNS(null, "height", "30");
-            image.onclick = () => {
-              window.open(
-                `https://www.google.com/maps/place/${selectedAddress.label}`,
-                "_blank",
-              );
-            };
-            // Додавання <image> до <svg>
-            svg.appendChild(image);
           } else {
             (path as SVGPathElement).style.fill = "#1a2636";
             (path as SVGPathElement).style.stroke = "#fff";
