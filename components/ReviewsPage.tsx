@@ -64,7 +64,7 @@ export default function ReviewsPageBlock() {
                 type="text"
                 required
                 name="name"
-                placeholder="Name:"
+                placeholder={`${t("name")}:`}
                 className="p-2 rounded"
                 value={reviewData?.name}
                 onChange={(e) => {
@@ -74,7 +74,7 @@ export default function ReviewsPageBlock() {
               <input
                 type="text"
                 name="country"
-                placeholder="Country:"
+                placeholder={`${t("country")}:`}
                 className="p-2 rounded"
                 value={reviewData?.country}
                 onChange={(e) => {
@@ -85,7 +85,7 @@ export default function ReviewsPageBlock() {
                 name="review"
                 id="review"
                 required
-                placeholder="Review: "
+                placeholder={`${t("review")}:`}
                 className="p-2 rounded min-h-[100px]"
                 value={reviewData?.review}
                 onChange={(e) => {
@@ -102,9 +102,11 @@ export default function ReviewsPageBlock() {
               />
               <div className="flex gap-5">
                 <button className="bg-[#ffb932] rounded-[20px] text-[16px] text-center text-[#1a1c1e] px-[20px] items-center font-bold hover:drop-shadow-3xl focus:drop-shadow-3xl ease-linear duration-200 active:bg-[#bb861f]">
-                  Save
+                  {t("save")}
                 </button>
-                <Modal.CloseButton>Close</Modal.CloseButton>
+                <Modal.CloseButton className="text-white">
+                  {t("close")}
+                </Modal.CloseButton>
               </div>
             </form>
           </Modal.Content>
