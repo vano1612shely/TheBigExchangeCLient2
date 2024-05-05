@@ -64,7 +64,11 @@
     "successfully": "Успешно",
     "applicationSent": "Заявка отправлена",
     "applicationNotSent": "Заявка не была обработана, попробуйте позже",
-    "loadMore": "Загрузить еще"
+    "loadMore": "Загрузить еще",
+    "reviewsTitle1": "Несколько слов от",
+    "reviewsTitle2": "наших клиентов",
+    "more": "Больше",
+    "addReview": "Добавить отзыв"
   },
   "title": "The Big Exchange",
   "description": "TheBigExchange - мгновенный обмен криптовалют в Украине. Низкие комиссии, безопасность, поддержка 24/7. Просто, быстро, надежно!",

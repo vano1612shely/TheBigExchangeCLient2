@@ -66,7 +66,11 @@
     "successfully": "Successfully",
     "applicationSent": "The application has been sent",
     "applicationNotSent": "The application was not processed, try again later",
-    "loadMore": "Load more"
+    "loadMore": "Load more",
+    "reviewsTitle1": "A word from",
+    "reviewsTitle2": "our customers",
+    "more": "More",
+    "addReview": "Add review"
   },
   "title": "The Big Exchange",
   "description": "TheBigExchange - instant cryptocurrency exchange in Ukraine. Low commissions, security, support 24/7. Simple, fast, reliable!",

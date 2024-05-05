@@ -63,13 +63,13 @@ export default function Department() {
     getData();
   }, []);
   useEffect(() => {
-    const svg = document.querySelector("svg");
+    const svg = document.getElementById("map");
     if (svg) {
       const existingImages = svg.querySelectorAll("image");
       existingImages.forEach((existingImage) => {
         svg.removeChild(existingImage); // Видалення кожного старого <image> елемента
       });
-      const paths = document.querySelectorAll("svg path");
+      const paths = document.querySelectorAll("#map path");
       paths.forEach((path) => {
         if (path) {
           const pathId = path.getAttribute("id");

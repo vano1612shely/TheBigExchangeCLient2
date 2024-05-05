@@ -64,7 +64,11 @@
     "successfully": "בהצלחה",
     "applicationSent": "בקשה נשלחה",
     "applicationNotSent": "הבקשה לא נעשתה, נסה שוב מאוחר יותר",
-    "loadMore": "טען עוד"
+    "loadMore": "טען עוד",
+    "reviewsTitle1": "מילה מהלקוחות שלנו",
+    "reviewsTitle2": "",
+    "more": "יותר",
+    "addReview": "הוסף ביקורת"
   },
   "title": "התחלה גדולה",
   "description": "TheBigExchange - המרת מטבעות דיגיטליים באוקראינה. עמלות נמוכות, ביטחון, תמיכה 24/7. פשוט, מהיר, אמין!",

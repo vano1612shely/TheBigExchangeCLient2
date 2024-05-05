@@ -65,7 +65,11 @@
     "successfully": "بنجاح",
     "applicationSent": "تم إرسال الطلب",
     "applicationNotSent": "لم يتم معالجة الطلب، يرجى المحاولة لاحقًا",
-    "loadMore": "تحميل المزيد"
+    "loadMore": "تحميل المزيد",
+    "reviewsTitle1": "كلمة من عملائنا",
+    "reviewsTitle2": "",
+    "more": "أكثر",
+    "addReview": "إضافة مراجعة"
   },
   "title": "الصرف الكبير",
   "description": "TheBigExchange - تبادل فوري للعملات المشفرة في أوكرانيا. رسوم منخفضة، أمان، دعم على مدار الساعة. بسيطة، سريعة، موثوقة!",

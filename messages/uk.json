@@ -64,7 +64,11 @@
     "successfully": "Успішно",
     "applicationSent": "Заявку надіслано",
     "applicationNotSent": "Заявка не була оброблена, спробуйте пізніше",
-    "loadMore": "Завантажити ще"
+    "loadMore": "Завантажити ще",
+    "reviewsTitle1": "Кілька слів від",
+    "reviewsTitle2": "наших клієнтів",
+    "more": "Більше",
+    "addReview": "Додати відгук"
   },
   "title": "The Big Exchange",
   "description": "TheBigExchange - миттєвий обмін криптовалют в Україні. Низькі комісії, безпека, підтримка 24/7. Просто, швидко, надійно!",

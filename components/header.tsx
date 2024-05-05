@@ -23,7 +23,7 @@ export default function Header({
         <Image
           src={logo}
           alt="logo"
-          className="w-[180px] align-middle md:mb-[50px] sm:mb-[20px] lg:mb-0"
+          className="w-[180px] align-middle sm:mb-[20px] lg:mb-0"
         />
       </Link>
       <div className="flex flex-col items-center justify-end md:gap-[50px] md:flex-row sm:gap-[10px]">

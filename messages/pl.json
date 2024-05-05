@@ -64,7 +64,11 @@
     "successfully": "Pomyślnie",
     "applicationSent": "Aplikacja została wysłana",
     "applicationNotSent": "Żądanie nie zostało przetworzone, spróbuj ponownie później",
-    "loadMore": "Pobierz więcej"
+    "loadMore": "Pobierz więcej",
+    "reviewsTitle1": "Słowo od",
+    "reviewsTitle2": "naszych klientów",
+    "more": "Więcej",
+    "addReview": "Dodaj recenzję"
   },
   "title": "The Big Exchange",
   "description": "TheBigExchange to natychmiastowa wymiana kryptowalut na Ukrainie. Niskie opłaty, bezpieczeństwo, wsparcie 24/7. Prosto, szybko, niezawodnie!",

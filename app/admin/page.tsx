@@ -12,6 +12,8 @@ import BankAdminForm from "@/components/banksAdminForm";
 import ClientsAdminForm from "@/components/clientsAdminForm";
 import ChainAdminForm from "@/components/chainAdminForm";
 import BlogAdminCreator from "@/components/blogAdminCreator";
+import ReviewAdminForm from "@/components/reviewAdminForm";
+import React from "react";
 export default function Home() {
   const { user } = useAuth();
   const { logout } = useActions();
@@ -25,6 +27,7 @@ export default function Home() {
     | "clients"
     | "chain"
     | "blog"
+    | "reviews"
   >("info");
   useEffect(() => {
     if (!user) {
@@ -34,8 +37,8 @@ export default function Home() {
   }, [user]);
   if (user)
     return (
-      <Container className='pt-[50px]'>
-        <div className='flex flex-row gap-[10px]'>
+      <Container className="pt-[50px]">
+        <div className="flex flex-row gap-[10px]">
           <button
             className={`hover:text-[#ffb932] ease-linear duration-300 ${
               selectedItem == "info" ? "text-[#ffb932]" : ""
@@ -98,6 +101,16 @@ export default function Home() {
           </button>
           <button
             className={`hover:text-[#ffb932] ease-linear duration-300 ${
+              selectedItem == "reviews" ? "text-[#ffb932]" : ""
+            }`}
+            onClick={() => {
+              setSelectedItem("reviews");
+            }}
+          >
+            Отзывы
+          </button>
+          <button
+            className={`hover:text-[#ffb932] ease-linear duration-300 ${
               selectedItem == "blog" ? "text-[#ffb932]" : ""
             }`}
             onClick={() => {
@@ -117,7 +130,7 @@ export default function Home() {
             Клиенты
           </button>
           <button
-            className='hover:text-[#ffb932] ease-linear duration-300'
+            className="hover:text-[#ffb932] ease-linear duration-300"
             onClick={async () => {
               await logout();
             }}
@@ -130,6 +143,7 @@ export default function Home() {
         {selectedItem == "currency" ? <CurrencyAdminForm /> : ""}
         {selectedItem == "address" ? <AddressAdminForm /> : ""}
         {selectedItem == "banks" ? <BankAdminForm /> : ""}
+        {selectedItem == "reviews" ? <ReviewAdminForm /> : ""}
         {selectedItem == "clients" ? <ClientsAdminForm /> : ""}
         {selectedItem == "chain" ? <ChainAdminForm /> : ""}
         {selectedItem == "blog" ? <BlogAdminCreator /> : ""}

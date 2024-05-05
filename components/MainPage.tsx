@@ -12,6 +12,9 @@ import Department from "@/components/department";
 import OurServices from "@/components/ourServices";
 import Footer from "@/components/footer";
 import { useTranslations } from "next-intl";
+import Reviews from "@/components/Reviews/reviewsBlock";
+import { Review } from "@/types/review.type";
+import reviewsService from "@/services/reviews/reviews.service";
 
 export default function MainPage() {
   const t = useTranslations("Index");
@@ -40,10 +43,13 @@ export default function MainPage() {
     exchange: 1,
     address: "",
   });
+  const [reviews, setReviews] = useState<Review[]>([]);
   useEffect(() => {
     const getData = async () => {
       const res = await infoService.getAllData();
+      const rev = await reviewsService.getLastReviews();
       if (res) setData(res);
+      if (rev) setReviews(rev);
     };
     getData();
   }, []);
@@ -109,6 +115,13 @@ export default function MainPage() {
       <Container>
         <OurServices />
       </Container>
+      {reviews ? (
+        <Container>
+          <Reviews reviews={reviews} />
+        </Container>
+      ) : (
+        ""
+      )}
       <Container>
         <Footer
           phone={data.phone}

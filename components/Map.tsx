@@ -10,6 +10,7 @@ const CustomPath: React.FC<CustomPathProps> = ({ title, id, ...rest }) => {
 export default function Map({ className = "" }: { className: string }) {
   return (
     <svg
+      id="map"
       baseProfile="tiny"
       fill="#ececec"
       height="857"
