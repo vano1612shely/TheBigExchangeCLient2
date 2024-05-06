@@ -48,6 +48,9 @@ export async function generateMetadata({
     description: t("description"),
     keywords: t("keywords"),
     viewport: "content='width=device-width, initial-scale=1.0'",
+    icons: {
+      icon: "../icon.png",
+    },
   };
 }
 

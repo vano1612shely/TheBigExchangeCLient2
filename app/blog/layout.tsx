@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Raleway } from "next/font/google";
 import "../globals.css";
+import React from "react";
 const raleway = Raleway({
   subsets: ["latin"],
   variable: "--font-raleway",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     "Блог Криптовалютные новости, Обзоры рынка криптовалют, Статьи по техническому анализу, Обмен криптовалют в Украине, Инсайдерская информация о крипторынке, Советы по безопасному обмену, Актуальные тренды в мире криптовалют, Регуляторные новости в Украине, Лучшие практики для трейдеров, Аналитика рынка криптовалют в Украине.",
   viewport: "content='width=device-width, initial-scale=1.0'",
   icons: {
-    icon: "../../icon.png",
+    icon: "../icon.png",
   },
 };
 export default function RootLayout({
