@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Raleway } from "next/font/google";
 import "../globals.css";
+import React from "react";
 const raleway = Raleway({
   subsets: ["latin"],
   variable: "--font-raleway",

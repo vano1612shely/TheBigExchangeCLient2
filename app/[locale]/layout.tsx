@@ -5,6 +5,7 @@ import "./globals.css";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { ReactNode } from "react";
 import { locales } from "../../config";
+import React from "react";
 const raleway = Raleway({
   subsets: ["latin"],
   variable: "--font-raleway",
@@ -63,7 +64,6 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <head></head>
       <body
         className={`${xolonium.variable} ${raleway.variable}`}
         style={{ fontFamily: "Raleway,sans-serif" }}

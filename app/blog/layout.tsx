@@ -10,7 +10,7 @@ const raleway = Raleway({
 const xolonium = localFont({
   src: [
     {
-      path: "../../../public/fonts/Xolonium-Bold.woff2",
+      path: "../../public/fonts/Xolonium-Bold.woff2",
       weight: "bold",
       style: "normal",
     },
