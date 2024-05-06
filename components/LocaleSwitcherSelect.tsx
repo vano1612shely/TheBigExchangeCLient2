@@ -2,6 +2,7 @@
 import { useParams } from "next/navigation";
 import { ChangeEvent, ReactNode, useTransition } from "react";
 import { useRouter, usePathname } from "@/navigation";
+import { ChevronDown, Globe } from "lucide-react";
 
 type Props = {
   children: ReactNode;
@@ -36,7 +37,10 @@ export default function LocaleSwitcherSelect({
       >
         {children}
       </select>
-      <span className="pointer-events-none absolute right-2">ᐯ</span>
+      <span className="pointer-events-none absolute right-0">
+        <Globe size={20} />
+        {/*<ChevronDown size={20} />*/}
+      </span>
     </label>
   );
 }
