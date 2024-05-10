@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   verification: {
     google: "883Yo746r1Ku6Sc7oeYcmYdiwaeDX0oAMInIu3Tujb4",
   },
+  icons: {
+    icon: "icon.png",
+  },
 };
 export default function RootLayout({ children }: Props) {
   return (
