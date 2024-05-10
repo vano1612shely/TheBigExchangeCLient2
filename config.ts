@@ -4,3 +4,5 @@ export const locales = ["en", "uk", "ru", "pl", "kk", "ar", "he"] as const;
 
 // Use the default: `always`
 export const localePrefix = "always";
+
+export const paths = ["/", "/blog", "/reviews"];
