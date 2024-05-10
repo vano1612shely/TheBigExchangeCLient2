@@ -3,6 +3,14 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    async rewrites() {
+      return [
+        {
+          source: "/robots.txt",
+          destination: "/api/robots",
+        },
+      ];
+    },
     remotePatterns: [
       {
         protocol: "https",
