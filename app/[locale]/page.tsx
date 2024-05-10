@@ -2,6 +2,7 @@ import { NextIntlClientProvider, useMessages } from "next-intl";
 import MainPage from "../../components/MainPage";
 import { pick } from "next/dist/lib/pick";
 import React from "react";
+export const dynamic = "force-dynamic";
 export default function Home() {
   const messages = useMessages();
   return (
