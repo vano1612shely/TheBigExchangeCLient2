@@ -39,21 +39,20 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-// export async function generateMetadata({
-//   params: { locale },
-// }: Omit<Props, "children">) {
-//   const t = await getTranslations({ locale: locale });
-//
-//   return {
-//     title: t("title"),
-//     description: t("description"),
-//     keywords: t("keywords"),
-//     viewport: "content='width=device-width, initial-scale=1.0'",
-//     icons: {
-//       icon: "../icon.png",
-//     },
-//   };
-// }
+export async function generateMetadata({
+  params: { locale },
+}: Omit<Props, "children">) {
+  const t = await getTranslations({ locale: locale });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    keywords: t("keywords"),
+    icons: {
+      icon: "../icon.png",
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,
