@@ -19,14 +19,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "icon.png",
+    shortcut: "favicon.ico",
   },
 };
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="ru">
-      <Head>
-        <link rel="shortcut icon" href="/favicon.ico" />
-      </Head>
       <body>{children}</body>
     </html>
   );
