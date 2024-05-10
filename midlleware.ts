@@ -1,5 +1,5 @@
 import createMiddleware from "next-intl/middleware";
-import { locales, localePrefix, defaultLocale } from "./config";
+import { locales, localePrefix, defaultLocale, pathnames } from "./config";
 
 export default createMiddleware({
   defaultLocale,
@@ -8,5 +8,5 @@ export default createMiddleware({
 });
 
 export const config = {
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: ["/", "/(ru|ua|kk|pl|ar|he|en)/:path*"],
 };
