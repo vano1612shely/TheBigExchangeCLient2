@@ -8,11 +8,5 @@ import React from "react";
 // therefore doesn't have a locale associated with it.
 
 export default function NotFound() {
-  return (
-    <html lang="en">
-      <body>
-        <Error statusCode={404} />
-      </body>
-    </html>
-  );
+  window.location.reload();
 }
