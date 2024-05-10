@@ -2,10 +2,15 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Raleway } from "next/font/google";
 import "./globals.css";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import {
+  getMessages,
+  getTranslations,
+  unstable_setRequestLocale,
+} from "next-intl/server";
 import { ReactNode } from "react";
 import { locales } from "../../config";
 import React from "react";
+import { NextIntlClientProvider } from "next-intl";
 const raleway = Raleway({
   subsets: ["latin"],
   variable: "--font-raleway",
@@ -60,14 +65,16 @@ export default async function LocaleLayout({
 }: Props) {
   // Enable static rendering
   unstable_setRequestLocale(locale);
-
+  const messages = await getMessages();
   return (
     <html lang={locale}>
       <body
         className={`${xolonium.variable} ${raleway.variable}`}
         style={{ fontFamily: "Raleway,sans-serif" }}
       >
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
