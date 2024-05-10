@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     key: keyof typeof pathnames,
     locale: (typeof locales)[number],
   ) {
-    return `${host}/${locale}${key === "/" ? "" : key}`;
+    return `${host}/${locale}${key}`;
   }
 
   return keys.map((key) => ({
