@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Raleway } from "next/font/google";
 import "../globals.css";
-import React from "react";
-import { getTranslations } from "next-intl/server";
+import React, { ReactNode } from "react";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 const raleway = Raleway({
   subsets: ["latin"],
   variable: "--font-raleway",
@@ -32,11 +32,12 @@ export async function generateMetadata() {
     },
   };
 }
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+type Props = {
+  children: ReactNode;
+  params: { locale: string };
+};
+export default function RootLayout({ children, params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
   return (
     <html lang="ru">
       <body
