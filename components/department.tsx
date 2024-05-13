@@ -43,7 +43,7 @@ export default function Department() {
               label: region,
               options: [
                 {
-                  value: city_name,
+                  value: region,
                   label: `${city_name} ${address}`,
                 },
               ],
@@ -51,7 +51,7 @@ export default function Department() {
           } else {
             // Якщо група вже існує, додаємо новий варіант до відповідної групи
             groupedOptions[existingGroupIndex].options.push({
-              value: city_name,
+              value: region,
               label: `${city_name} ${address}`,
             });
           }
