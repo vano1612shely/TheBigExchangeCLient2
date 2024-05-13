@@ -1,9 +1,12 @@
 import React from "react";
 import LanguageProvider from "../components/LanguageProvider";
-import { useMessages } from "next-intl";
-import MainPage from "../components/MainPage";
-import { getTranslations } from "next-intl/server";
-export default async function RootPage() {
-  const t = await getTranslations({ locale: "en" });
-  return <LanguageProvider></LanguageProvider>;
+export default function RootPage() {
+  return (
+    <LanguageProvider>
+      <h1>
+        TheBigExchange - мгновенный обмен криптовалют в Украине. Низкие
+        комиссии, безопасность, поддержка 24/7. Просто, быстро, надежно!
+      </h1>
+    </LanguageProvider>
+  );
 }
