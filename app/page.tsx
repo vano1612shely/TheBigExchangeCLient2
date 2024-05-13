@@ -1,10 +1,9 @@
-import { redirect } from "next/navigation";
-import MainPage from "../components/MainPage";
 import React from "react";
-
-// This page only renders when the app is built statically (output: 'export')
-export default function RootPage() {
-  redirect("/en");
-
-  return <MainPage />;
+import LanguageProvider from "../components/LanguageProvider";
+import { useMessages } from "next-intl";
+import MainPage from "../components/MainPage";
+import { getTranslations } from "next-intl/server";
+export default async function RootPage() {
+  const t = await getTranslations({ locale: "en" });
+  return <LanguageProvider></LanguageProvider>;
 }

@@ -1,8 +1,6 @@
 import React, { ReactNode } from "react";
 import "./globals.css";
 import { Metadata } from "next";
-import { NextIntlClientProvider } from "next-intl";
-import Head from "next/head";
 
 type Props = {
   children: ReactNode;

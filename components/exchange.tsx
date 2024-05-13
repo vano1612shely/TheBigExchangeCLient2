@@ -317,6 +317,7 @@ export default function Exchange({
                   {t("selectCity")}
                 </h3>
                 <SelectReact
+                  id="select-country"
                   isSearchable={true}
                   options={transformToOptions(townList)}
                   className="text-white"
@@ -432,7 +433,8 @@ export default function Exchange({
                     {t("from")}
                   </h3>
                   <SelectReact
-                    isSearchable={false}
+                    id="select-from"
+                    isSearchable={true}
                     options={transformToOptions(townList)}
                     className="text-white"
                     styles={{
@@ -475,7 +477,8 @@ export default function Exchange({
                     {t("to")}
                   </h3>
                   <SelectReact
-                    isSearchable={false}
+                    id="select-to"
+                    isSearchable={true}
                     options={transformToOptions(townList)}
                     className="text-white"
                     styles={{
@@ -676,7 +679,8 @@ export default function Exchange({
                     {t("network")}:*
                   </h4>
                   <SelectReact
-                    isSearchable={false}
+                    id="select-network"
+                    isSearchable={true}
                     options={chains}
                     className="text-white"
                     styles={{
@@ -730,7 +734,8 @@ export default function Exchange({
                     {t("bank")}:*
                   </h4>
                   <SelectReact
-                    isSearchable={false}
+                    id="select-bank"
+                    isSearchable={true}
                     options={banks}
                     className="text-white"
                     styles={{

@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import Container from "@/components/container";
 import { IDataResponse } from "@/services/info/info-service.interface";
@@ -11,27 +10,13 @@ import SeoBlock from "@/components/seo-block";
 import Department from "@/components/department";
 import OurServices from "@/components/ourServices";
 import Footer from "@/components/footer";
-import { useTranslations } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
 import Reviews from "@/components/Reviews/reviewsBlock";
 import { Review } from "@/types/review.type";
 import reviewsService from "@/services/reviews/reviews.service";
 
 export default function MainPage() {
   const t = useTranslations("Index");
-  //@ts-ignore
-  function f(w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-    var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s),
-      dl = l != "dataLayer" ? "&l=" + l : "";
-    j.async = true;
-    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-    f.parentNode.insertBefore(j, f);
-  }
-  useEffect(() => {
-    f(window, document, "script", "dataLayer", "GTM-KP95JLCT");
-  }, []);
   const [exchangeType, setExchangeType] = useState<
     "transaction" | "online" | "offline"
   >("offline");

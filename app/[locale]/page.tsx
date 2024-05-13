@@ -1,6 +1,4 @@
-import { NextIntlClientProvider, useMessages } from "next-intl";
 import MainPage from "../../components/MainPage";
-import { pick } from "next/dist/lib/pick";
 import React from "react";
 import { unstable_setRequestLocale } from "next-intl/server";
 export const dynamic = "force-dynamic";
