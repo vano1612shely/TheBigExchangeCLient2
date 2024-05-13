@@ -34,16 +34,16 @@ export default function Department() {
 
           // Перевірка чи група вже існує у масиві groupedOptions за city_name
           const existingGroupIndex = groupedOptions.findIndex(
-            (group) => group.label === city_name,
+            (group) => group.label === region,
           );
 
           // Якщо групи для city_name ще не існує, створюємо нову
           if (existingGroupIndex === -1) {
             groupedOptions.push({
-              label: city_name,
+              label: region,
               options: [
                 {
-                  value: region,
+                  value: city_name,
                   label: `${city_name} ${address}`,
                 },
               ],
@@ -51,7 +51,7 @@ export default function Department() {
           } else {
             // Якщо група вже існує, додаємо новий варіант до відповідної групи
             groupedOptions[existingGroupIndex].options.push({
-              value: region,
+              value: city_name,
               label: `${city_name} ${address}`,
             });
           }
