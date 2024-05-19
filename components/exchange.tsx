@@ -343,6 +343,10 @@ export default function Exchange({
                       ...baseStyles,
                       color: "#fff",
                     }),
+                    input: (baseStyles, state) => ({
+                      ...baseStyles,
+                      color: "#fff",
+                    }),
                   }}
                   value={selectedCity}
                   onChange={(value) => {
@@ -404,6 +408,10 @@ export default function Exchange({
                       ...baseStyles,
                       color: "#fff",
                     }),
+                    input: (baseStyles, state) => ({
+                      ...baseStyles,
+                      color: "#fff",
+                    }),
                   }}
                   onChange={(
                     value: SingleValue<{ value: string; label: string }>,
@@ -459,6 +467,10 @@ export default function Exchange({
                         ...baseStyles,
                         color: "#fff",
                       }),
+                      input: (baseStyles, state) => ({
+                        ...baseStyles,
+                        color: "#fff",
+                      }),
                     }}
                     value={transactionFrom}
                     onChange={(value) => {
@@ -500,6 +512,10 @@ export default function Exchange({
                         color: "#fff",
                       }),
                       singleValue: (baseStyles, state) => ({
+                        ...baseStyles,
+                        color: "#fff",
+                      }),
+                      input: (baseStyles, state) => ({
                         ...baseStyles,
                         color: "#fff",
                       }),
@@ -698,6 +714,10 @@ export default function Exchange({
                         ...baseStyles,
                         background: "#1a1c1e",
                       }),
+                      input: (baseStyles, state) => ({
+                        ...baseStyles,
+                        color: "#fff",
+                      }),
                     }}
                     value={selectedChain}
                     onChange={(value) => {
@@ -752,6 +772,10 @@ export default function Exchange({
                       menuList: (baseStyles, state) => ({
                         ...baseStyles,
                         background: "#1a1c1e",
+                      }),
+                      input: (baseStyles, state) => ({
+                        ...baseStyles,
+                        color: "#fff",
                       }),
                     }}
                     value={selectedBank}

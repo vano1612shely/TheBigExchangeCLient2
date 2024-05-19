@@ -12,7 +12,7 @@ export default function LanguageProvider({
   const router = useRouter();
   const pathname = usePathname();
   useEffect(() => {
-    const browserLang = navigator.language;
+    const browserLang = navigator.language || navigator.languages[0];
     let detectedLocale = "en";
     // @ts-ignore
     if (locales.includes(browserLang)) {
