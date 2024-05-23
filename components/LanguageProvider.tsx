@@ -16,7 +16,9 @@ export default function LanguageProvider({
       //@ts-ignore
       navigator.userLanguage || navigator.language || navigator.languages[0];
     const supportedLanguages = ["en", "uk", "ru", "pl", "he", "ar", "kk"];
-    const lang = supportedLanguages.find((l) => userLang.startsWith(l)) || "en";
+    const lang =
+      supportedLanguages.find((l) => userLang.toLowerCase().includes(l)) ||
+      "en";
     router.replace(`/${lang}`);
   }, [router]);
 
