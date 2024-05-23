@@ -1,7 +1,8 @@
 import React from "react";
 import LanguageProvider from "../components/LanguageProvider";
 import Head from "next/head";
-export default function RootPage() {
+
+export default function Home() {
   return (
     <LanguageProvider>
       <Head>

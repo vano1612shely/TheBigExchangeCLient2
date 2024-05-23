@@ -10,18 +10,14 @@ export default function LanguageProvider({
   children: React.ReactNode;
 }) {
   const router = useRouter();
-  const pathname = usePathname();
-  useEffect(() => {
-    const browserLang = navigator.language || navigator.languages[0];
-    let detectedLocale = "en";
-    // @ts-ignore
-    if (locales.includes(browserLang)) {
-      detectedLocale = browserLang;
-    }
-    if (pathname === "/") {
-      router.replace(`/${detectedLocale}`);
-    }
-  }, []);
 
-  return <>{pathname == "/" ? <Loader /> : children}</>;
+  useEffect(() => {
+    const userLang =
+      navigator.userLanguage || navigator.language || navigator.languages[0];
+    const supportedLanguages = ["en", "uk", "ru", "pl", "he", "ar", "kk"];
+    const lang = supportedLanguages.find((l) => userLang.startsWith(l)) || "en";
+    router.replace(`/${lang}`);
+  }, [router]);
+
+  return null;
 }

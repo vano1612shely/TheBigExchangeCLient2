@@ -49,13 +49,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
-      <body
-        className={`${xolonium.variable} ${raleway.variable}`}
-        style={{ fontFamily: "Raleway,sans-serif" }}
-      >
-        {children}
-      </body>
-    </html>
+    <div
+      className={`${xolonium.variable} ${raleway.variable}`}
+      style={{ fontFamily: "Raleway,sans-serif" }}
+    >
+      {children}
+    </div>
   );
 }

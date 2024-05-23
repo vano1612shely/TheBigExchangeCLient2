@@ -68,15 +68,13 @@ export default async function LocaleLayout({
   unstable_setRequestLocale(locale);
   const messages = await getMessages();
   return (
-    <html lang={locale}>
-      <body
-        className={`${xolonium.variable} ${raleway.variable}`}
-        style={{ fontFamily: "Raleway,sans-serif" }}
-      >
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <div
+      className={`${xolonium.variable} ${raleway.variable}`}
+      style={{ fontFamily: "Raleway,sans-serif" }}
+    >
+      <NextIntlClientProvider messages={messages}>
+        {children}
+      </NextIntlClientProvider>
+    </div>
   );
 }

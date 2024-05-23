@@ -1,28 +1,13 @@
-import React, { ReactNode } from "react";
-import "./globals.css";
-import { Metadata } from "next";
+import { ReactNode } from "react";
+import React from "react";
 
-type Props = {
+export default async function LocaleLayout({
+  children,
+}: {
   children: ReactNode;
-};
-
-export const metadata: Metadata = {
-  title: "The Big Exchange",
-  description:
-    "TheBigExchange - мгновенный обмен криптовалют в Украине. Низкие комиссии, безопасность, поддержка 24/7. Просто, быстро, надежно!",
-  keywords:
-    "Обмен криптовалют в Украине, Моментальный обмен цифровых активов, Надежный обменник крипты, Лучшие курсы обмена в Украине, Безопасный обмен криптовалюты, Обмен Bitcoin, Ethereum, и других монет, Удобный процесс покупки и продажи крипты, Круглосуточная поддержка обмена, Низкие комиссии за обмен, Обменник с прозрачными условиями",
-  verification: {
-    google: "883Yo746r1Ku6Sc7oeYcmYdiwaeDX0oAMInIu3Tujb4",
-  },
-  icons: {
-    icon: "icon.png",
-    shortcut: "favicon.ico",
-  },
-};
-export default function RootLayout({ children }: Props) {
+}) {
   return (
-    <html lang="ru">
+    <html>
       <body>{children}</body>
     </html>
   );
