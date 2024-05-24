@@ -15,7 +15,6 @@ export default function LanguageProvider({
     const userLang =
       //@ts-ignore
       navigator.userLanguage || navigator.language || navigator.languages[0];
-    alert(userLang);
     const supportedLanguages = ["en", "uk", "ru", "pl", "he", "ar", "kk"];
     const lang =
       supportedLanguages.find((l) => userLang.toLowerCase().includes(l)) ||
