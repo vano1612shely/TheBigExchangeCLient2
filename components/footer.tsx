@@ -24,7 +24,7 @@ export default function Footer({
   const t = useTranslations("Index");
   return (
     <div className="flex flex-col gap-[50px] text-center p-[30px] pt-[50px] border-t justify-between md:gap-0 md:flex-row md:text-left bottom-0 relative items-center md:items-start">
-      <div className="m-auto md:m-0">
+      <div className="m-auto md:m-0 w-[100px]">
         <Link href={"#"}>
           <Image src={logo} alt="logo" />
         </Link>
@@ -60,15 +60,6 @@ export default function Footer({
             >
               <Image src={telegramIcon} alt="telegram" />
               {telegram}
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex gap-[10px] items-center hover:text-[#ffb932] duration-300 ease-linear"
-              href={`https://t.me/${telegramBot}`}
-            >
-              <Image src={telegramIcon} alt="telegram" />
-              {telegramBot}
             </Link>
           </li>
           <li className="flex gap-[10px] items-center">
