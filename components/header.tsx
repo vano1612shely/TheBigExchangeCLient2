@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import logo from "@/public/logo.svg";
+import logo from "@/public/logo.png";
 import { Link } from "@/navigation";
 import call from "@/public/call.svg";
 import telegramIcon from "@/public/telegram.svg";

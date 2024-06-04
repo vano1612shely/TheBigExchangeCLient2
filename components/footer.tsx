@@ -1,14 +1,12 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/public/logo.svg";
+import logo from "@/public/logo.png";
 import phoneIcon from "@/public/phone.svg";
 import instagramIcon from "@/public/instagram.svg";
 import telegramIcon from "@/public/telegram2.svg";
 import marker from "@/public/marker.svg";
 import time from "@/public/time.svg";
-import android from "@/public/android-logo.png";
-import { dirname } from "path";
 import { useTranslations } from "next-intl";
 export default function Footer({
   phone,
@@ -24,15 +22,6 @@ export default function Footer({
   instagram: string;
 }) {
   const t = useTranslations("Index");
-  // const handleDownload = () => {
-  //   const apkUrl = dirname + "/public/app-release.apk";
-  //   const link = document.createElement("a");
-  //   link.href = apkUrl;
-  //   link.download = "app-release.apk";
-  //   document.body.appendChild(link);
-  //   link.click();
-  //   document.body.removeChild(link);
-  // };
   return (
     <div className="flex flex-col gap-[50px] text-center p-[30px] pt-[50px] border-t justify-between md:gap-0 md:flex-row md:text-left bottom-0 relative items-center md:items-start">
       <div className="m-auto md:m-0">
@@ -40,14 +29,6 @@ export default function Footer({
           <Image src={logo} alt="logo" />
         </Link>
       </div>
-      {/*<a*/}
-      {/*  className="bg-[#ffb932] w-[250px] text-center p-[10px] rounded flex items-center justify-between hover:drop-shadow-3xl focus:drop-shadow-3xl ease-linear duration-200 active:bg-[#bb861f]"*/}
-      {/*  download*/}
-      {/*  target="_blank"*/}
-      {/*  href="https://thebigexchange.net:5000/app-release.apk"*/}
-      {/*>*/}
-      {/*  {t("downloadApp")} <Image src={android} alt="" width={20} height={20} />*/}
-      {/*</a>*/}
       <div>
         <h3 className="font-bold text-[16px] leading-[19px] text-white mb-[30px]">
           {t("contacts").toUpperCase()}
@@ -79,6 +60,15 @@ export default function Footer({
             >
               <Image src={telegramIcon} alt="telegram" />
               {telegram}
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="flex gap-[10px] items-center hover:text-[#ffb932] duration-300 ease-linear"
+              href={`https://t.me/${telegramBot}`}
+            >
+              <Image src={telegramIcon} alt="telegram" />
+              {telegramBot}
             </Link>
           </li>
           <li className="flex gap-[10px] items-center">
