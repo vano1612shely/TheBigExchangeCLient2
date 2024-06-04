@@ -18,12 +18,12 @@ export default function Header({
 }) {
   const t = useTranslations("Index");
   return (
-    <div className="font-raleway py-[40px] flex flex-col justify-between items-center  md:flex-row">
+    <div className="font-raleway py-[40px] flex flex-col justify-between items-center md:flex-row">
       <Link href="/">
         <Image
           src={logo}
           alt="logo"
-          className="w-[70px] align-middle sm:mb-[20px] lg:mb-0"
+          className="w-[100px] align-middle sm:mb-[20px] lg:mb-0"
         />
       </Link>
       <div className="flex flex-col items-center justify-end md:gap-[50px] md:flex-row sm:gap-[10px]">
