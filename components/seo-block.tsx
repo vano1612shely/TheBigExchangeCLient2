@@ -5,7 +5,7 @@ export default function SeoBlock() {
   return (
     <div className="mb-[100px]">
       <h2 className="font-bold text-[30px] leading-[42px] text-white text-center mb-[50px] lg:text-[36px]">
-        TheBigExchange
+        LukanExchange
         <span className="text-[#ffb932]"> - {t("seoBlock.title")}</span>
       </h2>
       <div className="flex flex-col gap-[50px] md:flex-row">
@@ -21,7 +21,7 @@ export default function SeoBlock() {
         {/*</div>*/}
         <div className="basis-1 text-center md:basis-6/12 md:text-left">
           <h3 className="text-[#ffb932] font-bold text-[24px] leading-[28px] mb-[10px]">
-            TheBigExchange: {t("seoBlock.subtitle")}
+            LukanExchange: {t("seoBlock.subtitle")}
           </h3>
           <p className="text-white text-[16px] leading-[19px] mb-[19px]">
             {t("seoBlock.p1")}
