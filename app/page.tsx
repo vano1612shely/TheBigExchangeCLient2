@@ -9,12 +9,12 @@ export default function Home() {
         <title>The Big Exchange</title>
         <meta
           name="description"
-          content="TheBigExchange - мгновенный обмен криптовалют в Украине. Низкие комиссии, безопасность, поддержка 24/7. Просто, быстро, надежно!"
+          content="LukanExchange - мгновенный обмен криптовалют в Украине. Низкие комиссии, безопасность, поддержка 24/7. Просто, быстро, надежно!"
         />
-        <meta property="og:title" content="The Big Exchange" />
+        <meta property="og:title" content="Lukan Exchange" />
         <meta
           property="og:description"
-          content="TheBigExchange - мгновенный обмен криптовалют в Украине. Низкие комиссии, безопасность, поддержка 24/7. Просто, быстро, надежно!"
+          content="LukanExchange - мгновенный обмен криптовалют в Украине. Низкие комиссии, безопасность, поддержка 24/7. Просто, быстро, надежно!"
         />
         <meta
           property="og:image"
@@ -22,8 +22,8 @@ export default function Home() {
         />
       </Head>
       <h1>
-        TheBigExchange - мгновенный обмен криптовалют в Украине. Низкие
-        комиссии, безопасность, поддержка 24/7. Просто, быстро, надежно!
+        LukanExchange - мгновенный обмен криптовалют в Украине. Низкие комиссии,
+        безопасность, поддержка 24/7. Просто, быстро, надежно!
       </h1>
     </LanguageProvider>
   );

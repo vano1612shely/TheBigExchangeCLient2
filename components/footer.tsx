@@ -24,15 +24,15 @@ export default function Footer({
   instagram: string;
 }) {
   const t = useTranslations("Index");
-  const handleDownload = () => {
-    const apkUrl = dirname + "/public/app-release.apk";
-    const link = document.createElement("a");
-    link.href = apkUrl;
-    link.download = "app-release.apk";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  // const handleDownload = () => {
+  //   const apkUrl = dirname + "/public/app-release.apk";
+  //   const link = document.createElement("a");
+  //   link.href = apkUrl;
+  //   link.download = "app-release.apk";
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // };
   return (
     <div className="flex flex-col gap-[50px] text-center p-[30px] pt-[50px] border-t justify-between md:gap-0 md:flex-row md:text-left bottom-0 relative items-center md:items-start">
       <div className="m-auto md:m-0">
@@ -40,14 +40,14 @@ export default function Footer({
           <Image src={logo} alt="logo" />
         </Link>
       </div>
-      <a
-        className="bg-[#ffb932] w-[250px] text-center p-[10px] rounded flex items-center justify-between hover:drop-shadow-3xl focus:drop-shadow-3xl ease-linear duration-200 active:bg-[#bb861f]"
-        download
-        target="_blank"
-        href="https://thebigexchange.net:5000/app-release.apk"
-      >
-        {t("downloadApp")} <Image src={android} alt="" width={20} height={20} />
-      </a>
+      {/*<a*/}
+      {/*  className="bg-[#ffb932] w-[250px] text-center p-[10px] rounded flex items-center justify-between hover:drop-shadow-3xl focus:drop-shadow-3xl ease-linear duration-200 active:bg-[#bb861f]"*/}
+      {/*  download*/}
+      {/*  target="_blank"*/}
+      {/*  href="https://thebigexchange.net:5000/app-release.apk"*/}
+      {/*>*/}
+      {/*  {t("downloadApp")} <Image src={android} alt="" width={20} height={20} />*/}
+      {/*</a>*/}
       <div>
         <h3 className="font-bold text-[16px] leading-[19px] text-white mb-[30px]">
           {t("contacts").toUpperCase()}
