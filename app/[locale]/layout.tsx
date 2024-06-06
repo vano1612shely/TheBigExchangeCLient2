@@ -47,7 +47,7 @@ export async function generateMetadata({
     keywords: t("keywords"),
     icons: {
       icon: "../icon.png",
-      shortcut: "../favicon.png",
+      shortcut: "../favicon.ico",
     },
   };
 }
