@@ -18,7 +18,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://thebigexchange.net/icon.png"
+          content="https://thebigexchange.net/icon.ico"
         />
       </Head>
       <h1>

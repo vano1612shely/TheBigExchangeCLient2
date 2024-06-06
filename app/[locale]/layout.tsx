@@ -45,10 +45,6 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     keywords: t("keywords"),
-    icons: {
-      icon: "../icon.png",
-      shortcut: "../favicon.ico",
-    },
   };
 }
 
