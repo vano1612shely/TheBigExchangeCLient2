@@ -4,7 +4,7 @@ export const locales = ["en", "uk", "ru", "pl", "kk", "ar", "he"] as const;
 
 // Use the default: `always`
 export const localePrefix = "always";
-export const host = "https://thebigexchange.net";
+export const host = "https://lukan.exchange";
 export const pathnames = {
   "/": "/",
   "/blog": "/blog",
