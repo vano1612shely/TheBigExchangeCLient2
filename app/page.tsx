@@ -16,10 +16,7 @@ export default function Home() {
           property="og:description"
           content="LukanExchange - мгновенный обмен криптовалют в Украине. Низкие комиссии, безопасность, поддержка 24/7. Просто, быстро, надежно!"
         />
-        <meta
-          property="og:image"
-          content="https://thebigexchange.net/icon.ico"
-        />
+        <meta property="og:image" content="https://lukan.exchange/icon.ico" />
       </Head>
       <h1>
         LukanExchange - мгновенный обмен криптовалют в Украине. Низкие комиссии,
