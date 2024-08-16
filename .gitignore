@@ -9,7 +9,7 @@ next.config.js
 .env.local
 # testing
 /coverage
-
+/.codebuddy
 # next.js
 /.next/
 /out/

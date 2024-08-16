@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export function middleware(request: any) {
   const acceptLanguage = request.headers.get("accept-language") || "";
-  const supportedLanguages = ["en", "uk", "ru", "pl", "he", "ar", "kk"];
+  const supportedLanguages = ["en", "uk", "ru", "pl", "he", "ar", "kk", "de"];
 
   let language = "en"; // default language
 

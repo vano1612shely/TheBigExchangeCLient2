@@ -2,7 +2,7 @@
   "Index": {
     "LocaleSwitcher": {
       "label": "שנה שפה",
-      "locale": "{locale, select, uk {\uD83C\uDDFA\uD83C\uDDE6 אוקראינית} en {\uD83C\uDDFA\uD83C\uDDF8 אנגלית} ru {\uD83C\uDDF7\uD83C\uDDFA רוסית} pl {\uD83C\uDDF5\uD83C\uDDF1 פולנית} kk {\uD83C\uDDF0\uD83C\uDDFF קזחית} ar {\uD83C\uDDE6\uD83C\uDDEA ערבית} he {\uD83C\uDDEE\uD83C\uDDF1 עברית} other {לא ידוע}}"
+      "locale": "{locale, select, uk {\uD83C\uDDFA\uD83C\uDDE6 אוקראינית} en {\uD83C\uDDFA\uD83C\uDDF8 אנגלית} ru {\uD83C\uDDF7\uD83C\uDDFA רוסית} pl {\uD83C\uDDF5\uD83C\uDDF1 פולנית} de {\uD83C\uDDE9\uD83C\uDDEA גֶרמָנִיָת} kk {\uD83C\uDDF0\uD83C\uDDFF קזחית} ar {\uD83C\uDDE6\uD83C\uDDEA ערבית} he {\uD83C\uDDEE\uD83C\uDDF1 עברית} other {לא ידוע}}"
     },
     "blog": "בלוג",
     "telegramBot": "בוט טלגרם",
