@@ -20,9 +20,10 @@ export default function Blog() {
   }, [skip]);
   return (
     <div className="grow">
+      {posts.length > 0 &&
       <section>
         <LastPost post={posts[0]} />
-      </section>
+      </section>}
       <section className="text-center mb-[100px]">
         <ul className="flex justify-around flex-wrap gap-[30px] mb-[70px]">
           {posts.map((post) => {
