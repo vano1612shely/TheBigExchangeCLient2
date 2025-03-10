@@ -18,9 +18,6 @@ export default function Blog() {
     };
     getPosts();
   }, [skip]);
-  if (posts.length == 0) {
-    return <Loader />;
-  }
   return (
     <div className="grow">
       <section>
