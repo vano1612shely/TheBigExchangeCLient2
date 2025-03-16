@@ -1,5 +1,9 @@
 {
   "Index": {
+    "cashless": "Bargeldlos",
+    "all": "Alle",
+    "crypto": "Krypto",
+    "wallet": "Brieftasche",
     "LocaleSwitcher": {
       "label": "Sprache ändern",
       "locale": "{locale, select, uk {\uD83C\uDDFA\uD83C\uDDE6 Ukrainisch} en {\uD83C\uDDFA\uD83C\uDDF8 Englisch} ru {\uD83C\uDDF7\uD83C\uDDFA Russisch} pl {\uD83C\uDDF5\uD83C\uDDF1 Polnisch} de {\uD83C\uDDE9\uD83C\uDDEA Deutsch} kk {\uD83C\uDDF0\uD83C\uDDFF Kasachisch} ar {\uD83C\uDDE6\uD83C\uDDEA Arabisch} he {\uD83C\uDDEE\uD83C\uDDF1 Hebräisch} other {Unbekannt}}"

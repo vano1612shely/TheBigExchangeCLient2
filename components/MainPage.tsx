@@ -17,9 +17,6 @@ import reviewsService from "@/services/reviews/reviews.service";
 
 export default function MainPage() {
   const t = useTranslations("Index");
-  const [exchangeType, setExchangeType] = useState<
-    "transaction" | "online" | "offline"
-  >("offline");
   const [data, setData] = useState<IDataResponse>({
     telegram: "",
     telegramBot: "",
@@ -57,39 +54,7 @@ export default function MainPage() {
         />
       </Container>
       <Container className="mb-[100px]">
-        <div className="flex flex-row h-[50px]">
-          <button
-            onClick={() => setExchangeType("offline")}
-            className={`text-[12px] md:text-[14px]  font-bold text-white relative z-20 h-full flex items-center ${
-              exchangeType === "offline"
-                ? "bg-[#2f2f2f] border-[#ffb932]"
-                : "bg-[#1a1c1e] border-[#1a1c1e]"
-            } border px-[30px] rounded-tl-[10px] rounded-tr-[10px] ease-linear duration-200 hover:border-[#ffb932] hover:bg-[#2f2f2f]`}
-          >
-            {t("branch")}
-          </button>
-          <button
-            onClick={() => setExchangeType("online")}
-            className={`text-[12px] md:text-[14px]  font-bold text-white relative z-20 h-full flex items-center ${
-              exchangeType === "online"
-                ? "bg-[#2f2f2f] border-[#ffb932]"
-                : "bg-[#1a1c1e] border-[#1a1c1e]"
-            } border px-[30px] rounded-tl-[10px] rounded-tr-[10px] ease-linear duration-200 hover:border-[#ffb932] hover:bg-[#2f2f2f]`}
-          >
-            {t("CardBank")}
-          </button>
-          <button
-            onClick={() => setExchangeType("transaction")}
-            className={`text-[12px] md:text-[14px] font-bold text-white relative z-20 h-full flex items-center ${
-              exchangeType === "transaction"
-                ? "bg-[#2f2f2f] border-[#ffb932]"
-                : "bg-[#1a1c1e] border-[#1a1c1e]"
-            } border px-[10px] rounded-tl-[10px] rounded-tr-[10px] ease-linear duration-200 hover:border-[#ffb932] hover:bg-[#2f2f2f]`}
-          >
-            {t("cashTransfer")}
-          </button>
-        </div>
-        <Exchange type={exchangeType} />
+        <Exchange />
       </Container>
       <Container>
         <SeoBlock />

@@ -1,12 +1,19 @@
-import { IBank } from "../banks/banks-service.interface";
 import { ICurrency } from "../currency/currency-service.interface";
 
 export interface ITelegramSendMessageRequest {
-  type: string;
+  getType: {
+    value: string
+    label: string
+  };
+  giveType: {
+    value: string
+    label: string
+  }
   transactionType?: string;
   transactionFrom?: string;
   transactionTo?: string;
   city?: string;
+  city_id?: number;
   getCurrency: ICurrency | null;
   giveCurrency: ICurrency | null;
   getSum: number;
@@ -16,8 +23,6 @@ export interface ITelegramSendMessageRequest {
   telegram: string;
   email?: string;
   exchange: number;
-  bank?: string;
-  chain?: string;
   wallet?: string;
   from?: string;
 }

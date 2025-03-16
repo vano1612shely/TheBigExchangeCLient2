@@ -3,7 +3,7 @@ import Image from "next/image";
 import pin from "@/public/ic-map-pin.svg";
 interface ICityList {
   townList: ICityByCountry;
-  setCity: (city: string) => void;
+  setCity: (city: any) => void;
   currentCity: string;
   title: string;
   height: number | null;
@@ -38,7 +38,7 @@ export default function CityList({
                       <button
                         type="button"
                         onClick={() => {
-                          setCity(town.city_name);
+                          setCity(town);
                         }}
                         className={`easy-linear duration-300 flex flex-row h-[40px] rounded-[10px] text-[18px] text-white items-center px-[30px] font-raleway w-full border hover:bg-[#2f2f2f]  hover:border-[#ffb932] ${
                           currentCity === town.city_name

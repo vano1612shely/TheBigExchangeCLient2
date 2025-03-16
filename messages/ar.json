@@ -1,6 +1,10 @@
 
 {
   "Index": {
+    "cashless": "غير نقدي",
+    "all": "الكل",
+    "crypto": "كريبتو",
+    "wallet": "محفظة",
     "LocaleSwitcher": {
       "label": "تغيير اللغة",
       "locale": "{locale, select, uk {\uD83C\uDDFA\uD83C\uDDE6 أوكرانيا} en {\uD83C\uDDFA\uD83C\uDDF8 الإنجليزية} ru {\uD83C\uDDF7\uD83C\uDDFA الروسية} pl {\uD83C\uDDF5\uD83C\uDDF1 البولندية} de {\uD83C\uDDE9\uD83C\uDDEA الألمانية} kk {\uD83C\uDDF0\uD83C\uDDFF الكازاخية} ar {\uD83C\uDDE6\uD83C\uDDEA العربية} he {\uD83C\uDDEE\uD83C\uDDF1 العبرية} other {غير معروف}}"

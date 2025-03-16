@@ -5,6 +5,7 @@ export default function CityAdminForm() {
   const [data, setData] = useState<ICity[]>([]);
   const [cityName, setCityName] = useState<string>("");
   const [country, setCountry] = useState<string>("");
+    const [percent, setPercent] = useState<number>(0);
   useEffect(() => {
     const getData = async () => {
       const res = await cityService.getListWithoutFormat();
@@ -40,32 +41,39 @@ export default function CityAdminForm() {
             })
           : ""}
       </ul>
-      <div className='flex flex-col w-[300px] gap-[10px]'>
-        <input
-          type='text'
-          placeholder='Введите название города'
-          className='text-black rounded p-[5px]'
-          value={cityName}
-          onChange={(e) => setCityName(e.target.value)}
-        />
-        <input
-          type='text'
-          placeholder='Введите название страны'
-          className='text-black rounded p-[5px]'
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-        />
-        <button
-          className='bg-[#ffb932] rounded p-[5px]'
-          onClick={async () => {
-            const res = await cityService.addCity(cityName, country);
-            setData([...data, res]);
-            setCityName("");
-          }}
-        >
-          Добавить
-        </button>
-      </div>
+        <div className='flex flex-col w-[300px] gap-[10px]'>
+            <input
+                type='text'
+                placeholder='Введите название города'
+                className='text-black rounded p-[5px]'
+                value={cityName}
+                onChange={(e) => setCityName(e.target.value)}
+            />
+            <input
+                type='text'
+                placeholder='Введите название страны'
+                className='text-black rounded p-[5px]'
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+            />
+            <input
+                type='number'
+                placeholder='Введите процент'
+                className='text-black rounded p-[5px]'
+                value={percent}
+                onChange={(e) => setPercent(Number(e.target.value))}
+            />
+            <button
+                className='bg-[#ffb932] rounded p-[5px]'
+                onClick={async () => {
+                    const res = await cityService.addCity(cityName, country, percent);
+                    setData([...data, res]);
+                    setCityName("");
+                }}
+            >
+                Добавить
+            </button>
+        </div>
     </div>
   );
 }

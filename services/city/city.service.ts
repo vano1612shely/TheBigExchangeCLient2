@@ -10,10 +10,11 @@ class CityService {
     const res = await api.get("/city/withoutFormat");
     return res.data;
   }
-  async addCity(city: string, country: string): Promise<ICity> {
+  async addCity(city: string, country: string, percent?: number): Promise<ICity> {
     const res = await api.post("/city", {
       city,
       country,
+      percent
     });
     return res.data;
   }
