@@ -66,6 +66,10 @@ export default function Exchange() {
     message: "",
     onClick: () => setShowModal(false),
   });
+    const [banks, setBanks] = useState<any>([]);
+    const [chains, setChains] = useState<any>([]);
+    const [selectedBank, setSelectedBank] = useState<any>();
+    const [selectedChain, setSelectedChain] = useState<any>();
   const [giveCurrency, setGiveCurrency] = useState<ICurrency[]>([]);
   const [selectedCity, setSelectedCity] = useState<any>();
   const [getCurrency, setGetCurrency] = useState<ICurrency[]>([]);
@@ -94,6 +98,33 @@ export default function Exchange() {
       const towns = await cityService.getList();
 
       if (towns) setTownList(towns);
+        const banksRes = await banksService.getAll();
+        if (banksRes) {
+            let banksList: any = [];
+            banksRes.map(
+                (bank: { id: number; name: string; icon_link?: string }) => {
+                    banksList.push({
+                        value: bank.name,
+                        label: (
+                            <div className="text-white flex flex-row items-center">
+                                {bank.icon_link ? (
+                                    <Image
+                                        src={URL + "/" + bank.icon_link}
+                                        alt={bank.name}
+                                        width={30}
+                                        height={30}
+                                        className="mr-[5px]"
+                                    />
+                                ) : (
+                                    ""
+                                )}{" "}
+                                {bank.name}
+                            </div>
+                        ),
+                    });
+                },
+            );
+            setBanks(banksList);}
       setGetCurrency(get);
       const usdt = give.find((g) => g.value.toLowerCase() == "usdt");
       const usd = get.find((g) => g.value.toLowerCase() == "usd");
@@ -109,7 +140,33 @@ export default function Exchange() {
   }, []);
     useEffect(() => {
         const getData = async () => {
-            if(formData.getType.value === "cash") {
+            if (formData.getCurrency?.type == "crypto") {
+                if (formData.getCurrency.id) {
+                    const chainRes = await chainService.getChainsForCurrency(
+                        formData.getCurrency.id,
+                    );
+                    if (chainRes) {
+                        let chainsList: any = [];
+                        chainRes.map((chain: { id: number; name: string }) => {
+                            chainsList.push({
+                                value: chain.name,
+                                label: (
+                                    <div className="text-white flex flex-row items-center">
+                                        {chain.name}
+                                    </div>
+                                ),
+                            });
+                        });
+                        setChains(chainsList);
+                    }
+                }
+            }
+        };
+        getData();
+    }, [formData.getCurrency]);
+    useEffect(() => {
+        const getData = async () => {
+            if(formData.getType.value === "cash" || formData.getType.value === "cashless") {
                 const get = await currencyService.getFiat();
                 setGetCurrency(get);
                 const usd = get.find((g) => g.value.toLowerCase() == "usd");
@@ -140,7 +197,6 @@ export default function Exchange() {
         getData()
     }, [formData.getType]);
     useEffect(() => {
-
         const getData = async () => {
             if(formData.giveType.value === "cash" || formData.giveType.value === "cashless") {
                 const give = await currencyService.getFiat();
@@ -355,7 +411,7 @@ export default function Exchange() {
                                 });
                                 if (value.value === "cash") {
                                     setShowCityList(true)
-                                } else {
+                                } else if(formData.getType.value !== "cash"){
                                     setShowCityList(false)
                                 }
                             }}
@@ -433,7 +489,7 @@ export default function Exchange() {
                                 });
                                 if (value.value === "cash") {
                                     setShowCityList(true)
-                                } else {
+                                } else if(formData.giveType.value !== 'cash'){
                                     setShowCityList(false)
                                 }
                             }}
@@ -541,17 +597,118 @@ export default function Exchange() {
                         />
                     </div>
                 </div>
-                {formData.getType.value !== "cash" &&
-                <div className="w-full">
-                    <h4 className="pl-[20px] mb-[10px] font-bold">{formData.getCurrency?.type === "crypto"?t("wallet"):t("bill")}</h4>
-                    <input
-                        value={formData.wallet}
-                        onChange={(e) => {
-                            setFormData({...formData, wallet: e.target.value});
-                        }}
-                        type="text"
-                        className="w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light"
-                    />
+                {(formData.getType.value !== "cash" && formData.getCurrency?.type === "fiat") ? (
+                    <div
+                        className="flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]">
+                        <div className="w-full">
+                            <h4 className="pl-[20px] mb-[10px] font-bold">
+                                {t("bank")}:*
+                            </h4>
+                            <SelectReact
+                                id="select-bank"
+                                isSearchable={true}
+                                options={banks}
+                                className="text-white"
+                                styles={{
+                                    control: (baseStyles, state) => ({
+                                        ...baseStyles,
+                                        borderRadius: "20px",
+                                        height: "40px",
+                                        background: "#1a1c1e",
+                                    }),
+                                    option: (baseStyles, state) => ({
+                                        ...baseStyles,
+                                        background: "#1a1c1e",
+                                    }),
+                                    menuList: (baseStyles, state) => ({
+                                        ...baseStyles,
+                                        background: "#1a1c1e",
+                                    }),
+                                    input: (baseStyles, state) => ({
+                                        ...baseStyles,
+                                        color: "#fff",
+                                    }),
+                                }}
+                                value={selectedBank}
+                                onChange={(value) => {
+                                    setSelectedBank(value);
+                                    setFormData({...formData, bank: value.value});
+                                }}
+                            />
+                        </div>
+                        <div className="w-full">
+                            <h4 className="pl-[20px] mb-[10px] font-bold">
+                                {t("bill")}:*
+                            </h4>
+                            <input
+                                type="text"
+                                value={formData?.wallet}
+                                onChange={(e) => {
+                                    setFormData({...formData, wallet: e.target.value});
+                                }}
+                                required
+                                className="w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light"
+                            />
+                        </div>
+                    </div>
+                ) : (
+                    ""
+                )}
+                {formData.getCurrency?.type === "crypto" &&
+                <div className="flex flex-col gap-[20px] mb-[20px] items-center lg:flex-row lg:items-star lg:gap-[5px]">
+                    <div className="w-full">
+                        <h4 className="pl-[20px] mb-[10px] font-bold">
+                            {t("network")}:*
+                        </h4>
+                        <SelectReact
+                            id="select-network"
+                            isSearchable={true}
+                            options={chains}
+                            className="text-white"
+                            styles={{
+                                control: (baseStyles, state) => ({
+                                    ...baseStyles,
+                                    borderRadius: "20px",
+                                    height: "40px",
+                                    background: "#1a1c1e",
+                                }),
+                                option: (baseStyles, state) => ({
+                                    ...baseStyles,
+                                    background: "#1a1c1e",
+                                }),
+                                menuList: (baseStyles, state) => ({
+                                    ...baseStyles,
+                                    background: "#1a1c1e",
+                                }),
+                                input: (baseStyles, state) => ({
+                                    ...baseStyles,
+                                    color: "#fff",
+                                }),
+                            }}
+                            value={selectedChain}
+                            onChange={(value) => {
+                                setSelectedChain(value);
+                                setFormData({...formData, chain: value.value});
+                            }}
+                        />
+                    </div>
+                    <div className="w-full">
+                        <h4 className="pl-[20px] mb-[10px] font-bold">
+                            {t("wallet")}:*
+                        </h4>
+                        <input
+                            type="text"
+                            value={formData?.wallet}
+                            onChange={(e) => {
+                                setFormData({
+                                    ...formData,
+                                    wallet: e.target.value,
+                                });
+                            }}
+                            required
+                            className="w-full h-[40px] rounded-[20px] bg-[#1a1c1e] border border-white p-[2px] pl-[30px] appearance-none focus:drop-shadow-1xl-light"
+                        />
+                    </div>
                 </div>}
                 <p className="text-center font-bold text-[16px] mb-[10px] lg:text-right">
                     {t("checkExactCourse")}

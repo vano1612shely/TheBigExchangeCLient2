@@ -25,4 +25,6 @@ export interface ITelegramSendMessageRequest {
   exchange: number;
   wallet?: string;
   from?: string;
+  bank?: string;
+  chain?: string;
 }
