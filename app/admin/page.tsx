@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import InfoAdminForm from "@/components/infoAdminForm";
 import CityAdminForm from "@/components/cityAdminForm";
 import CurrencyAdminForm from "@/components/currencyAdminForm";
-import Container from "@/components/container";
 import { useActions } from "@/hooks/useActions";
 import AddressAdminForm from "@/components/addressAdminForm";
 import BankAdminForm from "@/components/banksAdminForm";
@@ -37,7 +36,7 @@ export default function Home() {
   }, [user]);
   if (user)
     return (
-      <Container className="pt-[50px]">
+        <div className="pt-[50px] px-10">
         <div className="flex flex-row gap-[10px]">
           <button
             className={`hover:text-[#ffb932] ease-linear duration-300 ${
@@ -146,7 +145,6 @@ export default function Home() {
         {selectedItem == "reviews" ? <ReviewAdminForm /> : ""}
         {selectedItem == "clients" ? <ClientsAdminForm /> : ""}
         {selectedItem == "chain" ? <ChainAdminForm /> : ""}
-        {selectedItem == "blog" ? <BlogAdminCreator /> : ""}
-      </Container>
+        {selectedItem == "blog" ? <BlogAdminCreator /> : ""}</div>
     );
 }

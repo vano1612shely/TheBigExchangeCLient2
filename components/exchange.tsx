@@ -46,7 +46,7 @@ function transformToOptions(townList: ICityByCountry): GroupedOption[] {
 }
 export default function Exchange() {
   const t = useTranslations("Index");
-  const types = [{label: t("all"), value: 'all'},{
+  const types = [{
       label: t("cashless"),
       value: 'cashless'
   },{
@@ -75,7 +75,7 @@ export default function Exchange() {
   const [getCurrency, setGetCurrency] = useState<ICurrency[]>([]);
   const [townList, setTownList] = useState<ICityByCountry>({});
   const [formData, setFormData] = useState<ITelegramSendMessageRequest>({
-    getType: types[0],
+    getType: types[2],
     giveType: types[0],
     city: "",
     name: "",
@@ -92,9 +92,9 @@ export default function Exchange() {
   useEffect(() => {
     const getData = async () => {
       setIsLoading(true);
-      const give = await currencyService.getAll();
+      const give = await currencyService.getFiat();
       setGiveCurrency(give);
-      const get = await currencyService.getAll();
+      const get = await currencyService.getCrypto();
       const towns = await cityService.getList();
 
       if (towns) setTownList(towns);
