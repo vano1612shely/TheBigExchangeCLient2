@@ -1,5 +1,20 @@
-
 {
+  "request": {
+    "toHome": "Басты бетке",
+    "cashless": "Қолма-қол ақшасыз",
+    "crypto": "Крипто",
+    "cash": "Қолма-қол",
+    "request": "Өтінім",
+    "exchange": "Айырбастау",
+    "status": "Мәртебесі",
+    "city": "Қала",
+    "rate": "Курс",
+    "wallet": "Әмиян",
+    "IN_PROGRESS": "Орындауда",
+    "PAYOUT_PROCESS": "Төлем процесі",
+    "COMPLETED": "Аяқталды",
+    "CANCELED": "Бас тартылды"
+  },
   "Index": {
     "network": "Желі",
     "cashless": "Қолма-қолсыз",

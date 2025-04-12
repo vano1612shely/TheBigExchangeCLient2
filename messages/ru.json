@@ -1,4 +1,19 @@
-{
+{"request": {
+  "toHome": "На главную",
+  "cashless": "Безнал",
+  "crypto": "Крипта",
+  "cash": "Наличные",
+  "request": "Заявка",
+  "exchange": "Обмен",
+  "status": "Статус",
+  "city": "Город",
+  "rate": "Курс",
+  "wallet": "Кошелёк",
+  "IN_PROGRESS": "В работе",
+  "PAYOUT_PROCESS": "Процесс выплаты",
+  "COMPLETED": "Завершена",
+  "CANCELED": "Отменена"
+},
   "Index": {
     "network": "Сеть",
     "cashless": "Безнал",

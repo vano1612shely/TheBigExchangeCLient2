@@ -1,4 +1,20 @@
 {
+  "request": {
+    "toHome": "Do strony głównej",
+    "cashless": "Bezgótówkowo",
+    "crypto": "Krypto",
+    "cash": "Gotówka",
+    "request": "Zgłoszenie",
+    "exchange": "Wymiana",
+    "status": "Status",
+    "city": "Miasto",
+    "rate": "Kurs",
+    "wallet": "Portfel",
+    "IN_PROGRESS": "W trakcie",
+    "PAYOUT_PROCESS": "Proces wypłaty",
+    "COMPLETED": "Zakończona",
+    "CANCELED": "Anulowana"
+  },
   "Index": {
     "network": "Sieć",
     "cashless": "Bezgotówkowy",

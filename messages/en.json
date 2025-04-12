@@ -1,4 +1,20 @@
 {
+  "request": {
+    "toHome": "To Home",
+    "cashless": "Cashless",
+    "crypto": "Crypto",
+    "cash": "Cash",
+    "request": "Request",
+    "exchange": "Exchange",
+    "status": "Status",
+    "city": "City",
+    "rate": "Rate",
+    "wallet": "Wallet",
+    "IN_PROGRESS": "In Progress",
+    "PAYOUT_PROCESS": "Payout Process",
+    "COMPLETED": "Completed",
+    "CANCELED": "Canceled"
+  },
   "Index": {
     "cashless": "Cashless",
     "all": "All",

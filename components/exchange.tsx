@@ -19,6 +19,7 @@ import chainService from "@/services/chains/chain.service";
 import { ICityByCountry } from "@/services/city/city-service.interface";
 import cityService from "@/services/city/city.service";
 import { useTranslations } from "next-intl";
+import {redirect, usePathname, useRouter} from "next/navigation";
 interface SelectOption {
   label: string;
   value: any;
@@ -46,6 +47,8 @@ function transformToOptions(townList: ICityByCountry): GroupedOption[] {
 }
 export default function Exchange() {
   const t = useTranslations("Index");
+    const router = useRouter();
+    const pathname = usePathname();
   const types = [{
       label: t("cashless"),
       value: 'cashless'
@@ -270,20 +273,8 @@ export default function Exchange() {
             return
           }
           const res = await telegramService.sendData(formData);
-          if (res === true) {
-            setModalData({
-              ...modalData,
-              title: t("successfully"),
-              message: t("applicationSent"),
-              buttonText: t("close"),
-            });
-          } else {
-            setModalData({
-              ...modalData,
-              title: t("successfully"),
-              message: t("applicationNotSent"),
-              buttonText: t("close"),
-            });
+          if (res) {
+              router.push(`${pathname}/${res}`)
           }
           setShowModal(true);
         }}

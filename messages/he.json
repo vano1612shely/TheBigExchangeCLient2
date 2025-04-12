@@ -1,4 +1,20 @@
 {
+  "request": {
+    "toHome": "לדף הבית",
+    "cashless": "אשראי",
+    "crypto": "קריפטו",
+    "cash": "מזומן",
+    "request": "בקשה",
+    "exchange": "המרה",
+    "status": "סטטוס",
+    "city": "עיר",
+    "rate": "שער",
+    "wallet": "ארנק",
+    "IN_PROGRESS": "בתהליך",
+    "PAYOUT_PROCESS": "תהליך תשלום",
+    "COMPLETED": "הושלם",
+    "CANCELED": "בוטל"
+  },
   "Index": {
     "network": "רשת",
     "cashless": "ללא מזומן",

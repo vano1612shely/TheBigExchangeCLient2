@@ -1,4 +1,20 @@
 {
+  "request": {
+    "toHome": "На головну",
+    "cashless": "Безнал",
+    "crypto": "Крипта",
+    "cash": "Готівка",
+    "request": "Заявка",
+    "exchange": "Обмін",
+    "status": "Статус",
+    "city": "Місто",
+    "rate": "Курс",
+    "wallet": "Гаманець",
+    "IN_PROGRESS": "В роботі",
+    "PAYOUT_PROCESS": "Процес виплати",
+    "COMPLETED":"Завершена",
+    "CANCELED": "Скасована"
+  },
   "Index": {
     "network": "Мережа",
     "cashless": "Безнал",

@@ -4,11 +4,14 @@ class TelegramService {
   async sendData(data: ITelegramSendMessageRequest): Promise<boolean | null> {
     const sData = { ...data };
     sData.from = "site";
-    console.log(sData);
     const res = await api.post("/sendMessage", sData);
     if (res.data) {
       return res.data;
     } else return false;
+  }
+  async getRequest(id: string) {
+    const res = await api.get(`/client/requestForCustomer/${id}`);
+    return res.data
   }
 }
 

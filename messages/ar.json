@@ -1,5 +1,20 @@
-
 {
+  "request": {
+    "toHome": "إلى الصفحة الرئيسية",
+    "cashless": "دون نقد",
+    "crypto": "كريبتو",
+    "cash": "نقدي",
+    "request": "طلب",
+    "exchange": "صرف",
+    "status": "الحالة",
+    "city": "المدينة",
+    "rate": "السعر",
+    "wallet": "محفظة",
+    "IN_PROGRESS": "قيد التنفيذ",
+    "PAYOUT_PROCESS": "عملية الدفع",
+    "COMPLETED": "مكتمل",
+    "CANCELED": "ملغى"
+  },
   "Index": {
     "network": "شبكة",
     "cashless": "غير نقدي",

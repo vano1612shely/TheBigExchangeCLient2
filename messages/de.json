@@ -1,4 +1,20 @@
 {
+  "request": {
+    "toHome": "Zur Startseite",
+    "cashless": "Kartenzahlung",
+    "crypto": "Krypto",
+    "cash": "Bargeld",
+    "request": "Anfrage",
+    "exchange": "Wechsel",
+    "status": "Status",
+    "city": "Stadt",
+    "rate": "Kurs",
+    "wallet": "Brieftasche",
+    "IN_PROGRESS": "In Bearbeitung",
+    "PAYOUT_PROCESS": "Auszahlungsprozess",
+    "COMPLETED": "Abgeschlossen",
+    "CANCELED": "Abgebrochen"
+  },
   "Index": {
     "network": "Netzwerk",
     "cashless": "Bargeldlos",
