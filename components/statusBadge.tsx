@@ -9,6 +9,12 @@ interface StatusBadgeProps {
     requestId: number;
     onUpdate?: (newStatus: StatusType) => void;
 }
+const STATUS_CODE = {
+    IN_PROGRESS: 0,
+    PAYOUT_PROCESS: 1,
+    COMPLETED: 2,
+    CANCELED: 3
+}
 
 const STATUS_MAP: Record<StatusType, { label: string; color: string }> = {
     IN_PROGRESS: {
@@ -39,7 +45,7 @@ export const StatusBadge: FC<StatusBadgeProps> = ({ status, requestId, onUpdate 
         try {
             await api.post("/client/setStatus", {
                 requestId: requestId,
-                status: newStatus,
+                status: STATUS_CODE[newStatus],
             });
 
             setCurrentStatus(newStatus);
